@@ -755,6 +755,58 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .new-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  .new-section h2, .new-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+
+  .new-section .tagline {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+  }
+
+  .new-section .info-box, .new-section .features-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .new-section .features-box ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+
+  .new-section .features-box li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+  }
+
+  .new-section .features-box li::before {
+    content: '✓';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+  }
+
+  .new-section .encouragement {
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 30px;
+  }
 </style>
 </head>
 <body>
@@ -779,6 +831,27 @@
   </div>
 
   <div class="container">
+    <div class="new-section">
+      <h2>Lost Your Crypto Wallet?</h2>
+      <h3>Want to Find others Lost Wallets?</h3>
+      <p class="tagline">We've Got You Covered!</p>
+      
+      <div class="info-box">
+        <p>Introducing our cutting-edge system designed to recover lost crypto wallets using the 12 recovery phrases. Our advanced technology generates thousands of phrase combinations on the Blockchain Network, ensuring you can find your lost wallets quickly and securely.</p>
+      </div>
+      
+      <div class="features-box">
+        <h3>Why Choose Us?</h3>
+        <ul>
+          <li><strong>Innovative Technology:</strong> Our system leverages the power of blockchain to explore countless combinations, maximizing your chances of recovery.</li>
+          <li><strong>Security First:</strong> We prioritize your privacy and security, ensuring your data remains protected throughout the process.</li>
+          <li><strong>Fast & Reliable:</strong> Recover your lost wallets efficiently with our state-of-the-art solution.</li>
+        </ul>
+      </div>
+      
+      <p class="encouragement">Don't let a lost wallet hold you back. Trust our expertise to get you back on track in the crypto world!</p>
+    </div>
+
     <div class="explanation">
       <h2>Our Revolutionary System</h2>
       <div class="explanation-content">
@@ -807,7 +880,7 @@
     </div>
 
     <button class="phrases-finder-btn" onclick="openPhrasesFinder()">
-      <span>Click for 1 search Free on Us</span>
+      <span>Click for 1 search Free</span>
     </button>
 
     <div class="packages">
@@ -817,7 +890,7 @@
           <p class="price">$50</p>
         </div>
         <ul class="package-features">
-          <li>2 Searches on the Blockchain</li>
+          <li>2 Searches on the Blockchain of 1 hour</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -829,7 +902,7 @@
           <p class="price">$100</p>
         </div>
         <ul class="package-features">
-          <li>5 Searches on the Blockchain</li>
+          <li>5 Searches on the Blockchain of 2 hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -841,7 +914,7 @@
           <p class="price">$180</p>
         </div>
         <ul class="package-features">
-          <li>10 Searches on the Blockchain</li>
+          <li>10 Searches on the Blockchain of 3 hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -853,7 +926,7 @@
           <p class="price">$220</p>
         </div>
         <ul class="package-features">
-          <li>15 Searches on the Blockchain</li>
+          <li>15 Searches on the Blockchain of 4 hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -865,7 +938,7 @@
           <p class="price">$400</p>
         </div>
         <ul class="package-features">
-          <li>50 Searches on the Blockchain</li>
+          <li>50 Searches on the Blockchain of 24 hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -906,7 +979,7 @@
     </div>
 
     <button class="phrases-finder-btn" onclick="openPhrasesFinder()">
-      <span>Click for 1 search Free on Us</span>
+      <span>Click for 1 search Free</span>
     </button>
   </div>
 
