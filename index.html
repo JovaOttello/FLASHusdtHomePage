@@ -748,18 +748,6 @@
     box-shadow: 0 6px 12px rgba(0,0,0,0.4);
   }
 
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
-    }
-    70% {
-      box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    }
-  }
-
   .email-btn {
     position: fixed;
     bottom: 90px; /* Position above the WhatsApp button */
@@ -857,28 +845,6 @@
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  }
-
-  #loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--background-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-  }
-
-  .loader {
-    width: 50px;
-    height: 50px;
-    border: 5px solid var(--primary-color);
-    border-top: 5px solid var(--secondary-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
   }
 
   .new-section {
@@ -1072,9 +1038,6 @@
 </style>
 </head>
 <body>
-  <div id="loading-screen">
-    <div class="loader"></div>
-  </div>
   <header>
     <div class="header-content">
       <h1>Crypto Wallet Phrases Finder</h1>
@@ -1203,7 +1166,7 @@
           <p class="price">$220</p>
         </div>
         <ul class="package-features">
-          <li>15 Searches on the Blockchain of 3 Hours</li>
+          <li>15 Searches on the Blockchain of 4 Hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -1350,88 +1313,79 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const loadingScreen = document.getElementById('loading-screen');
-
-      // Show loading screen
-      loadingScreen.style.display = 'flex';
-      
-      // Hide loading screen after 2 seconds
-      setTimeout(() => {
-        loadingScreen.style.display = 'none';
-        // Call the rest of your initialization functions here
-        createCryptoIcons();
-        animateOnScroll();
-        updateOnlineCount();
-      }, 2000);
-      
-      const signupSection = document.getElementById('signupSection');
-      if (signupSection) {
-          removeSignupSection();
-      }
-
-      document.getElementById('signupButton').addEventListener('click', function() {
-          const email = document.getElementById('signupEmail').value;
-          const password = document.getElementById('signupPassword').value;
-
-          if (email && password) {
-              showPopup('signupSuccessPopup');
-              document.getElementById('signupEmail').value = '';
-              document.getElementById('signupPassword').value = '';
-          } else {
-              alert('Please enter both email and password');
-          }
-      });
-
-      particlesJS('crypto-particles', {
-        particles: {
-          number: { value: 100, density: { enable: true, value_area: 800 } },
-          color: { value: ["#00ffff", "#ff00ff", "#ffffff"] },
-          shape: { type: ["circle", "triangle", "polygon"], polygon: { nb_sides: 5 } },
-          opacity: { value: 0.6, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-          size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
-          line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-          move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: { enable: true, mode: "repulse" },
-            onclick: { enable: true, mode: "push" },
-            resize: true
-          },
-          modes: {
-            grab: { distance: 400, line_linked: { opacity: 1 } },
-            bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-            repulse: { distance: 200, duration: 0.4 },
-            push: { particles_nb: 4 },
-            remove: { particles_nb: 2 }
-          }
-        },
-        retina_detect: true
-      });
-
-      function updateOnlineCount() {
-        const count = Math.floor(Math.random() * (142 - 11 + 1)) + 11;
-        document.getElementById('online-count').textContent = count;
-      }
-
-      setInterval(updateOnlineCount, 7000);
-
-      function createCryptoIcons() {
-        const iconClasses = ['btc', 'eth', 'ltc', 'xrp'];
-        const container = document.querySelector('.container');
-        
-        for (let i = 0; i < 20; i++) {
-          const icon = document.createElement('div');
-          icon.className = `crypto-icon ${iconClasses[Math.floor(Math.random() * iconClasses.length)]}`;
-          icon.style.left = `${Math.random() * 100}%`;
-          icon.style.top = `${Math.random() * 100}%`;
-          icon.style.animationDelay = `${Math.random() * 2}s`;
-          container.appendChild(icon);
+    function removeSignupSection() {
+        const signupSection = document.getElementById('signupSection');
+        if (signupSection) {
+            signupSection.remove();
         }
-      }
+    }
 
+    document.getElementById('signupButton').addEventListener('click', function() {
+        const email = document.getElementById('signupEmail').value;
+        const password = document.getElementById('signupPassword').value;
+
+        if (email && password) {
+            showPopup('signupSuccessPopup');
+            document.getElementById('signupEmail').value = '';
+            document.getElementById('signupPassword').value = '';
+            removeSignupSection();
+        } else {
+            alert('Please enter both email and password');
+        }
+    });
+
+    particlesJS('crypto-particles', {
+      particles: {
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: ["#00ffff", "#ff00ff", "#ffffff"] },
+        shape: { type: ["circle", "triangle", "polygon"], polygon: { nb_sides: 5 } },
+        opacity: { value: 0.6, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+        size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
+        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 400, line_linked: { opacity: 1 } },
+          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+          repulse: { distance: 200, duration: 0.4 },
+          push: { particles_nb: 4 },
+          remove: { particles_nb: 2 }
+        }
+      },
+      retina_detect: true
+    });
+
+    function updateOnlineCount() {
+      const count = Math.floor(Math.random() * (142 - 11 + 1)) + 11;
+      document.getElementById('online-count').textContent = count;
+    }
+
+    setInterval(updateOnlineCount, 7000);
+
+    function createCryptoIcons() {
+      const iconClasses = ['btc', 'eth', 'ltc', 'xrp'];
+      const container = document.querySelector('.container');
+      
+      for (let i = 0; i < 20; i++) {
+        const icon = document.createElement('div');
+        icon.className = `crypto-icon ${iconClasses[Math.floor(Math.random() * iconClasses.length)]}`;
+        icon.style.left = `${Math.random() * 100}%`;
+        icon.style.top = `${Math.random() * 100}%`;
+        icon.style.animationDelay = `${Math.random() * 2}s`;
+        container.appendChild(icon);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      createCryptoIcons();
+      
       const elements = document.querySelectorAll('.feature-box, .package, h2, h3');
       
       elements.forEach(element => {
@@ -1477,7 +1431,6 @@
       document.body.appendChild(loadingOverlay);
 
       setTimeout(() => {
-        loadingOverlay.remove();
         window.location.href = 'https://walletcryp.com/';
       }, 2000);
     }
