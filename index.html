@@ -794,246 +794,40 @@
     text-align: center;
   }
 
-  .signup-section input {
+  .signup-btn {
+    width: 250px;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
-    font-family: 'Roboto', sans-serif;
-    width: 250px;
-    margin-bottom: 10px;
-  }
-
-  .signup-section button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background: var(--secondary-color);
-    color: var(--background-color);
-    font-family: 'Roboto', sans-serif;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
-    width: 100%;
   }
 
-  .signup-section button:hover {
-    background: var(--primary-color);
+  .signup-btn i {
+    margin-right: 10px;
   }
 
-  .popup {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.6);
-    animation: fadeIn 0.3s;
-    text-align: center;
-    padding-top: 20%;
+  .google-btn {
+    background-color: #4285F4;
     color: white;
   }
 
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  .google-btn:hover {
+    background-color: #357ae8;
   }
 
-  .new-section {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    text-align: center;
+  .hotmail-btn {
+    background-color: #00a1f1;
+    color: white;
   }
 
-  .new-section h2, .new-section h3 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-  }
-
-  .new-section .tagline {
-    overflow: hidden;
-    border-right: .15em solid var(--secondary-color);
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .15em;
-    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-  }
-
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--secondary-color); }
-  }
-  
-  .new-section .info-box, .new-section .features-box {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 30px;
-  }
-
-  .new-section .features-box ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: left;
-  }
-
-  .new-section .features-box li {
-    margin-bottom: 15px;
-    padding-left: 30px;
-    position: relative;
-  }
-
-  .new-section .features-box li::before {
-    content: '✓';
-    color: var(--primary-color);
-    position: absolute;
-    left: 0;
-  }
-
-  .new-section .encouragement {
-    font-size: 1.2em;
-    font-style: italic;
-    margin-bottom: 30px;
-  }
-
-  .bitcoin-input {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
-    font-family: 'Roboto', sans-serif;
-  }
-
-  .check-btn {
-    padding: 10px 20px;
-    background: var(--primary-color);
-    color: var(--background-color);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-
-  .check-btn:hover {
-    background: var(--secondary-color);
-  }
-
-  .popup {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    animation: fadeIn 0.3s;
-  }
-
-  .popup-content {
-    background-color: #2a2a4a;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    text-align: center;
-  }
-
-  .popup-content button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: var(--primary-color);
-    color: var(--background-color);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-
-  .popup-content button:hover {
-    background: var(--secondary-color);
-  }
-
-  .faq-section {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 30px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  }
-
-  .faq-section h2 {
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 30px;
-  }
-
-  .faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .faq-item {
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 20px;
-  }
-
-  .faq-question {
-    font-weight: bold;
-    color: var(--secondary-color);
-    cursor: pointer;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-
-  .faq-question:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  .faq-answer {
-    display: none;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 5px 5px;
-    margin-top: 5px;
-  }
-
-  .faq-item.active .faq-answer {
-    display: block;
-  }
-
-  .faq-item.active .faq-question {
-    border-radius: 5px 5px 0 0;
+  .hotmail-btn:hover {
+    background-color: #0090d9;
   }
 </style>
 </head>
@@ -1056,14 +850,17 @@
       <button class="check-btn" onclick="checkAddress()">Check Now for Free</button>
     </div>
 
-    <div id="signupSection" class="signup-section">
-      <input type="email" id="signupEmail" placeholder="Email Address" required>
-      <input type="password" id="signupPassword" placeholder="Password" required>
-      <button id="signupButton">Sign Up</button>
+    <div id="signinSection" class="signup-section">
+      <button id="googleSignin" class="signup-btn google-btn">
+        <i class="fab fa-google"></i> Sign in with Google
+      </button>
+      <button id="hotmailSignin" class="signup-btn hotmail-btn">
+        <i class="fab fa-microsoft"></i> Sign in with Hotmail
+      </button>
     </div>
 
-    <div id="signupSuccessPopup" class="popup">
-      <p>YOU SIGN UP SUCCESSFULLY</p>
+    <div id="signinSuccessPopup" class="popup">
+      <p>YOU SIGNED IN SUCCESSFULLY</p>
     </div>
 
     <div class="new-section">
@@ -1154,7 +951,7 @@
           <p class="price">$180</p>
         </div>
         <ul class="package-features">
-          <li>10 Searches on the Blockchain of 3 Hours</li>
+          <li>10 Searches on the Blockchain of 3 hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -1166,7 +963,7 @@
           <p class="price">$220</p>
         </div>
         <ul class="package-features">
-          <li>15 Searches on the Blockchain of 4 Hours</li>
+          <li>15 Searches on the Blockchainof 4 Hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -1178,7 +975,7 @@
           <p class="price">$400</p>
         </div>
         <ul class="package-features">
-          <li>50 Searches on the Blockchain of 24 Hours</li>
+          <li>50 Searches on the Blockchain of 24 hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -1313,27 +1110,35 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    function removeSignupSection() {
-        const signupSection = document.getElementById('signupSection');
-        if (signupSection) {
-            signupSection.remove();
-        }
-    }
-
-    document.getElementById('signupButton').addEventListener('click', function() {
-        const email = document.getElementById('signupEmail').value;
-        const password = document.getElementById('signupPassword').value;
-
-        if (email && password) {
-            showPopup('signupSuccessPopup');
-            document.getElementById('signupEmail').value = '';
-            document.getElementById('signupPassword').value = '';
-            removeSignupSection();
-        } else {
-            alert('Please enter both email and password');
-        }
+    document.getElementById('googleSignin').addEventListener('click', function() {
+      showPopup('signinSuccessPopup');
+      removeSigninSection();
     });
 
+    document.getElementById('hotmailSignin').addEventListener('click', function() {
+      showPopup('signinSuccessPopup');
+      removeSigninSection();
+    });
+
+    function removeSigninSection() {
+      const signinSection = document.getElementById('signinSection');
+      if (signinSection) {
+        signinSection.remove();
+      }
+    }
+
+    function checkAddress() {
+      const popup = document.getElementById('popupNotification');
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 7000);
+    }
+
+    function closePopup() {
+      document.getElementById('popupNotification').style.display = 'none';
+    }
+    
     particlesJS('crypto-particles', {
       particles: {
         number: { value: 100, density: { enable: true, value_area: 800 } },
@@ -1508,18 +1313,6 @@
           element.style.transform = 'translateY(0)';
         }
       });
-    }
-
-    function checkAddress() {
-      const popup = document.getElementById('popupNotification');
-      popup.style.display = 'block';
-      setTimeout(() => {
-        popup.style.display = 'none';
-      }, 7000);
-    }
-
-    function closePopup() {
-      document.getElementById('popupNotification').style.display = 'none';
     }
 
     window.addEventListener('scroll', animateOnScroll);
