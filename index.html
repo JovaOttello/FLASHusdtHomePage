@@ -829,6 +829,32 @@
   .hotmail-btn:hover {
     background-color: #0090d9;
   }
+
+  .dots {
+    display: inline-block;
+    width: 30px;
+  }
+
+  @keyframes blink {
+    0% { opacity: .2; }
+    20% { opacity: 1; }
+    100% { opacity: .2; }
+  }
+
+  .dots span {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+
+  .dots span:nth-child(2) {
+    animation-delay: .2s;
+  }
+
+  .dots span:nth-child(3) {
+    animation-delay: .4s;
+  }
 </style>
 </head>
 <body>
@@ -859,8 +885,16 @@
       </button>
     </div>
 
+    <div id="loadingPopup" class="popup" style="display: none;">
+      <div class="popup-content">
+        <p>Signing in<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
+      </div>
+    </div>
+
     <div id="signinSuccessPopup" class="popup">
-      <p>YOU SIGNED IN SUCCESSFULLY</p>
+      <div class="popup-content">
+        <p>YOU SIGNED IN SUCCESSFULLY<span class="dots"><span>.</span><span>.</span><span>.</span></span></p>
+      </div>
     </div>
 
     <div class="new-section">
@@ -917,7 +951,7 @@
     </div>
 
     <button class="phrases-finder-btn" onclick="openPhrasesFinder()">
-      <span>Click for 1 search Free</span>
+      <span>Click for 1 search Free of 1 Hour</span>
     </button>
 
     <div class="packages">
@@ -927,7 +961,7 @@
           <p class="price">$50</p>
         </div>
         <ul class="package-features">
-          <li>2 Searches on the Blockchain of 1 Hour</li>
+          <li>2 Searches on the Blockchain of 2 Hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -939,7 +973,7 @@
           <p class="price">$100</p>
         </div>
         <ul class="package-features">
-          <li>5 Searches on the Blockchain of 2 Hours</li>
+          <li>5 Searches on the Blockchain of 3 Hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -951,7 +985,7 @@
           <p class="price">$180</p>
         </div>
         <ul class="package-features">
-          <li>10 Searches on the Blockchain of 3 hours</li>
+          <li>10 Searches on the Blockchain of 4 Hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -963,7 +997,7 @@
           <p class="price">$220</p>
         </div>
         <ul class="package-features">
-          <li>15 Searches on the Blockchainof 4 Hours</li>
+          <li>15 Searches on the Blockchain</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -975,7 +1009,7 @@
           <p class="price">$400</p>
         </div>
         <ul class="package-features">
-          <li>50 Searches on the Blockchain of 24 hours</li>
+          <li>50 Searches on the Blockchain of 24 Hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -1110,21 +1144,38 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    document.getElementById('googleSignin').addEventListener('click', function() {
-      showPopup('signinSuccessPopup');
-      removeSigninSection();
-    });
-
-    document.getElementById('hotmailSignin').addEventListener('click', function() {
-      showPopup('signinSuccessPopup');
-      removeSigninSection();
-    });
-
     function removeSigninSection() {
       const signinSection = document.getElementById('signinSection');
       if (signinSection) {
-        signinSection.remove();
+        signinSection.style.display = 'none';
       }
+    }
+
+    document.getElementById('googleSignin').addEventListener('click', function() {
+      showLoadingPopup();
+    });
+
+    document.getElementById('hotmailSignin').addEventListener('click', function() {
+      showLoadingPopup();
+    });
+
+    function showLoadingPopup() {
+      const loadingPopup = document.getElementById('loadingPopup');
+      loadingPopup.style.display = 'block';
+      
+      setTimeout(() => {
+        loadingPopup.style.display = 'none';
+        showSigninSuccessPopup();
+        removeSigninSection(); // Add this line to remove the sign-in section
+      }, 3000);
+    }
+
+    function showSigninSuccessPopup() {
+      const popup = document.getElementById('signinSuccessPopup');
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+      }, 2500);
     }
 
     function checkAddress() {
